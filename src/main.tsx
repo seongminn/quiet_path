@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { QueryClientProvider } from 'react-query/types/react';
+import { QueryClientProvider } from 'react-query';
 import App from './App';
 import getClient from './config/queryClient';
 
