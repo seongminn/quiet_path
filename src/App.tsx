@@ -1,5 +1,12 @@
+import { Routes, Route } from 'react-router-dom';
+import { MainPage } from './pages';
+
 function App() {
-  return <div className='App'>APP 입니다.</div>;
+  return (
+    <Routes>
+      <Route path='/' element={<MainPage />} />
+    </Routes>
+  );
 }
 
 export default App;
