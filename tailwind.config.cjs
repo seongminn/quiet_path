@@ -64,15 +64,8 @@ module.exports = {
     },
 
     fontFamily: {
-      'BLINKER-Black': ['Blinker-Black'],
-      'BLINKER-Bold': ['Blinker-Bold'],
-      'BLINKER-EBold': ['Blinker-EBold'],
-      'BLINKER-ELight': ['Blinker-ELight'],
-      'BLINKER-Light': ['Blinker-Light'],
-      'BLINKER-Medium': ['Blinker-Medium'],
-      'BLINKER-Regular': ['Blinker-Regular'],
-      'BLINKER-SBold': ['Blinker-SBold'],
-      'BLINKER-Thin': ['Blinker-Thin'],
+      Bold: ['NSRoundBold'],
+      Regular: ['NSRoundRegular'],
     },
 
     spacing: {
