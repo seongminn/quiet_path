@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-      - run: yarn
+        run: yarn
         #👇 Adds Chromatic as a step in the workflow
       - run: yarn build-storybook
       - run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --storybook-build-dir=storybook-static
