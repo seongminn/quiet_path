@@ -2,23 +2,35 @@ import Map from '@/components/Map/Map';
 import { getCongestion, getLatLng } from '@/query';
 import tw, { css } from 'twin.macro';
 
-const MainPage = () => {
-  // const lines = getLatLng({ line: 1 });
-  // const subways = getCongestion({ line: 1 });
+const Wrapper = tw.div`h-screen flex-center`;
 
+const Container = tw.section`
+  w-2/3 h-4/5 min-w-[440px] min-h-[500px] rounded-10
+  bg-white drop-shadow-lg
+  px-40
+
+  laptop:(flex items-center flex-row gap-40 justify-around)
+
+  mobile:(flex flex-col-reverse gap-20 items-center)
+`;
+
+const SubwayList = tw.div`
+  border-1 border-gray-400 rounded-5 
+  bg-white drop-shadow-md
+
+  laptop:(w-[240px])
+
+  mobile:(w-full max-w-[360px])
+`;
+
+const MainPage = () => {
   return (
-    <div css={tw`h-screen flex justify-center items-center`}>
-      <div
-        css={tw`bg-white w-2/3 h-4/5 min-h-[500px] rounded-10 drop-shadow-lg px-40 mx-auto my-0 flex justify-center items-center gap-40`}
-      >
-        <div
-          css={tw`bg-white min-w-[40%] border-1 border-gray-400 rounded-5 drop-shadow-md`}
-        >
-          여기
-        </div>
+    <Wrapper>
+      <Container>
+        <SubwayList>여기</SubwayList>
         <Map />
-      </div>
-    </div>
+      </Container>
+    </Wrapper>
   );
 };
 

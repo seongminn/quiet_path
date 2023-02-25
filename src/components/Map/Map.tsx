@@ -3,10 +3,15 @@ import { LoadScript, GoogleMap } from '@react-google-maps/api';
 import tw from 'twin.macro';
 
 const { VITE_GOOGLE_API_KEY } = import.meta.env;
+
 const Wrapper = tw.div`
-  w-2/3 max-w-[60%] h-full mx-auto my-0 rounded-10
+  max-w-[60%] min-w-[360px] h-full rounded-10
   shadow-gray-300 drop-shadow-lg
-  flex justify-center items-center
+  flex-center
+
+  laptop:(w-2/3 max-w-[60%])
+
+  mobile:(w-full)
 `;
 
 const Map = () => {
