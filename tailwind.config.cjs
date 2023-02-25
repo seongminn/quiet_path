@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const plugin = require('tailwindcss/plugin');
+
 // Arbitrary values를 간편하게 작성하도록 도와주는 코드
 const px0_10 = { ...Array.from(Array(11)).map((_, i) => `${i}px`) };
 const px0_100 = { ...Array.from(Array(101)).map((_, i) => `${i}px`) };
@@ -7,6 +9,27 @@ const px0_200 = { ...Array.from(Array(201)).map((_, i) => `${i}px`) };
 
 // px 단위의 값을 rem 단위로 변환하는 코드
 const pxToRem = (px, base = 16) => `${px / base}rem`;
+
+const flexCenterPlugin = plugin(({ addUtilities }) =>
+  addUtilities({
+    '.flex-center': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  })
+);
+
+const stackPlugin = plugin(({ addUtilities }) =>
+  addUtilities({
+    '.flex-stack': {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+    },
+  })
+);
 
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -75,5 +98,5 @@ module.exports = {
       }, {}),
     },
   },
-  plugins: [],
+  plugins: [flexCenterPlugin, stackPlugin],
 };
