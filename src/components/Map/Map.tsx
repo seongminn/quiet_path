@@ -4,26 +4,27 @@ import tw from 'twin.macro';
 
 const { VITE_GOOGLE_API_KEY } = import.meta.env;
 const Wrapper = tw.div`
-  w-1/2 h-full 
-  mx-auto my-0
-  drop-shadow-lg 
-  shadow-gray-300
+  w-2/3 max-w-[60%] h-full mx-auto my-0 rounded-10
+  shadow-gray-300 drop-shadow-lg
+  flex justify-center items-center
 `;
 
 const Map = () => {
   const { message, coordinates } = useGeolocation();
   const mapStyle = {
     width: '100%',
-    minHeight: '500px',
+    height: '85%',
+    borderRadius: '5px',
   };
 
   return (
     <Wrapper>
       <LoadScript googleMapsApiKey={VITE_GOOGLE_API_KEY}>
         <GoogleMap
-          zoom={15}
+          zoom={14}
           center={coordinates}
           mapContainerStyle={mapStyle}
+          options={{ mapTypeControl: false }}
         ></GoogleMap>
       </LoadScript>
     </Wrapper>

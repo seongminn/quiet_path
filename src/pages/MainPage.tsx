@@ -7,9 +7,15 @@ const MainPage = () => {
   // const subways = getCongestion({ line: 1 });
 
   return (
-    <div>
-      MAIN PAGE 입니다.
-      <div>
+    <div css={tw`h-screen flex justify-center items-center`}>
+      <div
+        css={tw`bg-white w-2/3 h-4/5 min-h-[500px] rounded-10 drop-shadow-lg px-40 mx-auto my-0 flex justify-center items-center gap-40`}
+      >
+        <div
+          css={tw`bg-white min-w-[40%] border-1 border-gray-400 rounded-5 drop-shadow-md`}
+        >
+          여기
+        </div>
         <Map />
       </div>
     </div>
