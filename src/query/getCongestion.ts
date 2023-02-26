@@ -1,8 +1,8 @@
-import { QueryKey } from '@/query/queryKey';
-import { RequestProps, ResponseProps } from '@/types/subway/Congestion';
 import { useQuery } from 'react-query';
-import { fetcher } from '../api/fetcher';
-import { URLs } from '../api/url';
+import { QueryKey } from '@/query/queryKey';
+import { RequestProps, ResponseProps } from '@/types/subway';
+import { fetcher } from '@/api/fetcher';
+import { URLs } from '@/api/url';
 
 const getCongestion = ({ line, investigatedDate = '평일' }: RequestProps) => {
   const { data: congestionData } = useQuery<ResponseProps>(
