@@ -1,4 +1,4 @@
-import { Map } from '@/components/map';
+import Map from '@/components/map/Map';
 import { getLatLng } from '@/query';
 import tw from 'twin.macro';
 
