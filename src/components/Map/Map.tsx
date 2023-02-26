@@ -1,33 +1,23 @@
 import tw from 'twin.macro';
 import { mapOptions, mapStyle } from '@/config/mapConfig';
 import { useGeolocation } from '@/hook';
-import { SubwayPosition } from '@/types/subway/Congestion';
-import {
-  LoadScript,
-  GoogleMap,
-  MarkerF,
-  InfoBoxF,
-} from '@react-google-maps/api';
-import { useState } from 'react';
+import { SubwayPosition } from '@/types/subway';
+import { LoadScript, GoogleMap } from '@react-google-maps/api';
+import Marker from './Marker';
 
 const Wrapper = tw.div`
-max-w-[60%] min-w-[360px] h-full rounded-10
-shadow-gray-300 drop-shadow-lg
+  min-w-[360px] h-full max-h-[90%] rounded-10
+  shadow-gray-300 drop-shadow-lg
   flex-center
 
-  laptop:(w-2/3 max-w-[50%])
+  laptop:max-w-[55%]
 
-  mobile:(w-full)
+  mobile:(w-full max-w-[90%])
   `;
 
 const Map = ({ subwayList }: { subwayList: SubwayPosition[] }) => {
   const { VITE_GOOGLE_API_KEY } = import.meta.env;
   const { message, coordinates } = useGeolocation();
-  const [isShown, toggleShown] = useState<boolean>(false);
-
-  const handleToggle = () => {
-    toggleShown((prev) => !prev);
-  };
 
   return (
     <Wrapper>
@@ -39,13 +29,7 @@ const Map = ({ subwayList }: { subwayList: SubwayPosition[] }) => {
           options={{ mapTypeControl: false, styles: mapOptions }}
         >
           {subwayList?.map(({ position, name }) => (
-            <MarkerF position={position} key={name} onClick={handleToggle}>
-              {isShown && (
-                <InfoBoxF onCloseClick={handleToggle}>
-                  <div>hi</div>
-                </InfoBoxF>
-              )}
-            </MarkerF>
+            <Marker position={position} name={name} key={name} />
           ))}
         </GoogleMap>
       </LoadScript>
