@@ -10,7 +10,10 @@ const getLatLng = ({ line }: { line: number }) => {
 
   return latLngData?.data
     .filter((obj: any) => obj.호선 === line)
-    .map((item: any) => [`${item.역명}역`, item.위도, item.경도]);
+    .map((item: any) => ({
+      name: `${item.역명}역`,
+      position: { lat: Number(item.위도), lng: Number(item.경도) },
+    }));
 };
 
 export default getLatLng;
