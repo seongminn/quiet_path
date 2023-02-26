@@ -1,17 +1,16 @@
-import Map from '@/components/Map/Map';
-import { getCongestion, getLatLng } from '@/query';
+import { Map } from '@/components/map';
+import { getLatLng } from '@/query';
 import tw, { css } from 'twin.macro';
 
 const Wrapper = tw.div`h-screen flex-center`;
 
 const Container = tw.section`
-  w-2/3 h-4/5 min-w-[440px] min-h-[500px] rounded-10
+  w-2/3 h-4/5 min-w-[440px] min-h-[500px] rounded-10 px-40
   bg-white drop-shadow-lg
-  px-40
 
   laptop:(flex items-center flex-row gap-40 justify-around)
 
-  mobile:(flex flex-col-reverse gap-20 items-center px-20)
+  mobile:(flex flex-col-reverse justify-end items-center px-20)
 `;
 
 const SubwayList = tw.div`
