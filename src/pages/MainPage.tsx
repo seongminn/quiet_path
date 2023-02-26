@@ -11,24 +11,26 @@ const Container = tw.section`
 
   laptop:(flex items-center flex-row gap-40 justify-around)
 
-  mobile:(flex flex-col-reverse gap-20 items-center)
+  mobile:(flex flex-col-reverse gap-20 items-center px-20)
 `;
 
 const SubwayList = tw.div`
   border-1 border-gray-400 rounded-5 
   bg-white drop-shadow-md
 
-  laptop:(w-[240px])
+  laptop:(w-[320px])
 
   mobile:(w-full max-w-[360px])
 `;
 
 const MainPage = () => {
+  const subwayList = getLatLng({ line: 1 });
+
   return (
     <Wrapper>
       <Container>
         <SubwayList>여기</SubwayList>
-        <Map />
+        <Map subwayList={subwayList} />
       </Container>
     </Wrapper>
   );
