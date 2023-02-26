@@ -1,5 +1,5 @@
 import { Map } from '@/components/maps';
-import { getLatLng } from '@/query';
+import { useState } from 'react';
 import tw from 'twin.macro';
 
 const Wrapper = tw.div`h-screen flex-center`;
@@ -23,13 +23,25 @@ const SubwayList = tw.div`
 `;
 
 const MainPage = () => {
-  const subwayList = getLatLng({ line: 1 });
+  const [line, setLine] = useState<number>(1);
+  const handleLine = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLine(Number(e.target.value));
+  };
 
   return (
     <Wrapper>
       <Container>
-        <SubwayList>여기</SubwayList>
-        <Map subwayList={subwayList} />
+        <div>
+          <input
+            type='number'
+            value={line}
+            onChange={handleLine}
+            max={8}
+            min={1}
+          />
+          <SubwayList>여기</SubwayList>
+        </div>
+        <Map line={line} />
       </Container>
     </Wrapper>
   );

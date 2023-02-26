@@ -4,6 +4,7 @@ import { useGeolocation } from '@/hook';
 import { SubwayPosition } from '@/types/subway';
 import { LoadScript, GoogleMap } from '@react-google-maps/api';
 import Marker from './Marker';
+import { getLatLng } from '@/query';
 
 const Wrapper = tw.div`
   min-w-[360px] h-full max-h-[90%] rounded-10
@@ -15,9 +16,10 @@ const Wrapper = tw.div`
   mobile:(w-full max-w-[90%])
   `;
 
-const Map = ({ subwayList }: { subwayList: SubwayPosition[] }) => {
+const Map = ({ line }: { line: number }) => {
   const { VITE_GOOGLE_API_KEY } = import.meta.env;
   const { message, coordinates } = useGeolocation();
+  const subwayList: SubwayPosition[] = getLatLng({ line });
 
   return (
     <Wrapper>
