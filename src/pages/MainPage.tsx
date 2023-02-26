@@ -1,6 +1,6 @@
 import { Map } from '@/components/map';
 import { getLatLng } from '@/query';
-import tw, { css } from 'twin.macro';
+import tw from 'twin.macro';
 
 const Wrapper = tw.div`h-screen flex-center`;
 
