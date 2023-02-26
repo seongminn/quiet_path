@@ -19,7 +19,7 @@ const Wrapper = tw.div`
 const Map = ({ line }: { line: number }) => {
   const { VITE_GOOGLE_API_KEY } = import.meta.env;
   const { message, coordinates } = useGeolocation();
-  const subwayList: SubwayPosition[] = getLatLng({ line: 1 });
+  const subwayList: SubwayPosition[] = getLatLng({ line });
 
   return (
     <Wrapper>
