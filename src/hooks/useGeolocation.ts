@@ -1,14 +1,10 @@
+import { LocationType } from '@/types/map';
 import { useEffect, useState } from 'react';
 
-type LocationType = {
-  message?: string;
-  coordinates: {
-    lat: number;
-    lng: number;
-  };
-};
-
-const useGeolocation = () => {
+const useGeolocation = (): [
+  LocationType,
+  React.Dispatch<React.SetStateAction<LocationType>>
+] => {
   const [location, setLocation] = useState<LocationType>({
     coordinates: {
       lat: 0,
@@ -27,26 +23,21 @@ const useGeolocation = () => {
     });
   };
 
-  const onError = ({ message }: { message: string }) => {
+  const onError = () => {
     setLocation({
-      message,
       coordinates: { lat: 37.56359, lng: 126.975407 },
     });
   };
 
   useEffect(() => {
     if (!('geolocation' in navigator)) {
-      onError({
-        message: '기본 위치로 이동합니다 !',
-      });
+      onError();
     }
 
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
-    console.log(location);
   }, []);
 
-  return location;
+  return [location, setLocation];
 };
 
 export default useGeolocation;

@@ -3,11 +3,15 @@ import { InfoBoxF, MarkerF } from '@react-google-maps/api';
 import { Fragment, useState } from 'react';
 import InfoBox from './InfoBox';
 
-const Marker = ({ name, position, line }: Info) => {
+const Marker = ({ name, position, line, setLocation }: Info) => {
   const [isShown, toggleShown] = useState<boolean>(false);
 
   const handleToggle = () => {
-    toggleShown((prev) => !prev);
+    if (isShown) toggleShown(false);
+    else {
+      setLocation({ coordinates: position });
+      toggleShown(true);
+    }
   };
 
   return (
