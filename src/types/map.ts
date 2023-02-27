@@ -1,22 +1,17 @@
-export type Position = {
+export type Location = {
   lat: number;
   lng: number;
 };
 
-export type LocationType = {
-  coordinates: Position;
-};
-
 export type Info = {
   name: string;
-  position: Position;
+  location: Location;
   line: number;
-  setLocation: React.Dispatch<React.SetStateAction<LocationType>>;
+  panTo: (location: Location) => void;
 };
 
 export type GoogleMapProps = {
   children: React.ReactNode;
-  location: LocationType;
-  map: google.maps.Map | null;
+  location: Location;
   setMap: React.Dispatch<React.SetStateAction<google.maps.Map | null>>;
 };

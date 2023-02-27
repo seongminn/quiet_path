@@ -1,41 +1,59 @@
-import { LocationType } from '@/types/map';
+import { Location } from '@/types/map';
 import { useEffect, useState } from 'react';
 
 const useGeolocation = (): [
-  LocationType,
-  React.Dispatch<React.SetStateAction<LocationType>>
+  Location,
+  React.Dispatch<React.SetStateAction<Location>>
 ] => {
-  const [location, setLocation] = useState<LocationType>({
-    coordinates: {
-      lat: 0,
-      lng: 0,
-    },
+  const [location, setLocation] = useState<Location>({
+    lat: 0,
+    lng: 0,
   });
 
-  const onSuccess = (position: {
-    coords: { latitude: number; longitude: number };
-  }) => {
-    setLocation({
-      coordinates: {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      },
-    });
-  };
-
-  const onError = () => {
-    setLocation({
-      coordinates: { lat: 37.56359, lng: 126.975407 },
-    });
-  };
-
   useEffect(() => {
-    if (!('geolocation' in navigator)) {
-      onError();
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+        },
+        () => {
+          console.log('위치를 파악하는 데에 실패했어요 !');
+          setLocation({ lat: 37.56359, lng: 126.975407 });
+        }
+      );
+    } else {
+      console.log('위치 정보 사용을 거부했어요 !');
+      setLocation({ lat: 37.56359, lng: 126.975407 });
     }
-
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
   }, []);
+
+  // const onSuccess = (position: {
+  //   coords: { latitude: number; longitude: number };
+  // }) => {
+  //   setLocation({
+  //     coordinates: {
+  //       lat: position.coords.latitude,
+  //       lng: position.coords.longitude,
+  //     },
+  //   });
+  // };
+
+  // const onError = () => {
+  //   setLocation({
+  //     coordinates: { lat: 37.56359, lng: 126.975407 },
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   if (!('geolocation' in navigator)) {
+  //     onError();
+  //   }
+
+  //   navigator.geolocation.getCurrentPosition(onSuccess, onError);
+  // }, []);
 
   return [location, setLocation];
 };
