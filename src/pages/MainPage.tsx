@@ -1,10 +1,10 @@
-import { Map } from '@/components/maps';
+import { MapContainer } from '@/components/maps';
 import { useState } from 'react';
 import tw from 'twin.macro';
 
 const Wrapper = tw.div`h-screen flex-center`;
 
-const Container = tw.section`
+const MainSection = tw.section`
   w-2/3 h-4/5 min-w-[440px] min-h-[500px] rounded-10 px-40
   bg-white drop-shadow-lg
 
@@ -30,7 +30,7 @@ const MainPage = () => {
 
   return (
     <Wrapper>
-      <Container>
+      <MainSection>
         <div>
           <input
             type='number'
@@ -41,8 +41,8 @@ const MainPage = () => {
           />
           <SubwayList>여기</SubwayList>
         </div>
-        <Map line={line} />
-      </Container>
+        <MapContainer line={line} />
+      </MainSection>
     </Wrapper>
   );
 };
