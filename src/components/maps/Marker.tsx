@@ -1,6 +1,6 @@
 import { Info } from '@/types/map';
 import { InfoBoxF, MarkerF } from '@react-google-maps/api';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import InfoBox from './InfoBox';
 
 const Marker = ({ name, position, line, setLocation }: Info) => {
@@ -15,15 +15,13 @@ const Marker = ({ name, position, line, setLocation }: Info) => {
   };
 
   return (
-    <Fragment>
-      <MarkerF position={position} key={name} onClick={handleToggle}>
-        {isShown && (
-          <InfoBoxF onCloseClick={handleToggle}>
-            <InfoBox line={line} name={name} />
-          </InfoBoxF>
-        )}
-      </MarkerF>
-    </Fragment>
+    <MarkerF position={position} key={name} onClick={handleToggle}>
+      {isShown && (
+        <InfoBoxF onCloseClick={handleToggle}>
+          <InfoBox line={line} name={name} />
+        </InfoBoxF>
+      )}
+    </MarkerF>
   );
 };
 
