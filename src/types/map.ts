@@ -5,4 +5,5 @@ export type Position = {
 export type Info = {
   name: string;
   position: Position;
+  line: number;
 };

@@ -31,7 +31,7 @@ const Map = ({ line }: { line: number }) => {
           options={{ mapTypeControl: false, styles: mapOptions }}
         >
           {subwayList?.map(({ position, name }) => (
-            <Marker position={position} name={name} key={name} />
+            <Marker position={position} name={name} key={name} line={line} />
           ))}
         </GoogleMap>
       </LoadScript>
