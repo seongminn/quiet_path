@@ -1,2 +1,2 @@
 export { default as getCongestion } from './getCongestion';
-export { default as getLatLng } from './getLatLng';
+export { default as getSubwayLocations } from './getSubwayLocations';

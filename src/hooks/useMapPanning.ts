@@ -1,17 +1,17 @@
-import { LocationType } from '@/types/map';
+import { Location } from '@/types/map';
 
-export function useMapPanning(map: google.maps.Map | null) {
-  const panToLocation = (location: LocationType) => {
+const useMapPanning = (map: google.maps.Map | null) => {
+  const panToLocation = (location: Location) => {
     if (!map) {
       return;
     }
 
-    const latLng = location;
-
-    map.panTo(latLng.coordinates);
+    map.panTo(location);
   };
 
-  return (location: LocationType) => {
+  return (location: Location) => {
     panToLocation(location);
   };
-}
+};
+
+export default useMapPanning;

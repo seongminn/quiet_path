@@ -60,7 +60,7 @@ export type RequestProps = {
   investigatedDate?: InvestigatedDate;
 };
 
-export type SubwayPosition = {
+export type SubwayLocation = {
   name: string;
-  position: { lat: number; lng: number };
+  location: { lat: number; lng: number };
 };
