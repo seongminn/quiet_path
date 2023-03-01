@@ -1,9 +1,9 @@
-import { Marker } from '@/types/map';
+import { MarkerProps } from '@/types/map';
 import { InfoWindowF, MarkerF } from '@react-google-maps/api';
 import { useCallback, useState } from 'react';
 import InfoContainer from './infos/InfoContainer';
 
-const Marker = ({ name, location, line, panTo }: Marker) => {
+const Marker = ({ name, location, line, panTo }: MarkerProps) => {
   const [isShown, toggleShown] = useState<boolean>(false);
 
   const handleToggle = useCallback(() => {
