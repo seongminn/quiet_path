@@ -6,16 +6,20 @@ import InfoContainer from './infos/InfoContainer';
 const Marker = ({ name, location, line, panTo }: MarkerProps) => {
   const [isShown, toggleShown] = useState<boolean>(false);
 
-  const handleToggle = useCallback(() => {
+  const handleToggle = () => {
     if (isShown) toggleShown(false);
     else {
-      panTo(location);
       toggleShown(true);
+      panTo(location);
     }
-  }, [isShown]);
+  };
 
   return (
-    <MarkerF position={location} onClick={handleToggle}>
+    <MarkerF
+      position={location}
+      onClick={handleToggle}
+      options={{ optimized: true }}
+    >
       {isShown && (
         <InfoWindowF onCloseClick={handleToggle} options={{ minWidth: 150 }}>
           <InfoContainer line={line} name={name} />
