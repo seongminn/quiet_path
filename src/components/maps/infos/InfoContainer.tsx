@@ -1,8 +1,6 @@
 import tw from 'twin.macro';
-import useTime from '@/hooks/useTime';
-import { useDayOfWeek } from '@/hooks';
+import { useDayOfWeek, useTime } from '@/hooks';
 import { getCongestion } from '@/query';
-import { Clocks } from '@/types/subway';
 import { Info, Skeleton } from '.';
 
 const InfoContainer = ({ line, name }: { line: number; name: string }) => {

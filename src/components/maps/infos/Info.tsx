@@ -8,13 +8,6 @@ const Info = ({ classification, congestion }: InfoProps) => {
     else return tw`text-primary`;
   };
 
-  // if (!congestion)
-  //   return (
-  //     <div css={styles}>
-  //       <span>지금은 운행 시간이 아니에요 !</span>
-  //     </div>
-  //   );
-
   return (
     <div css={styles}>
       <span>{classification}</span>
