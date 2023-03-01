@@ -15,7 +15,7 @@ const Info = ({ classification, congestion }: InfoProps) => {
       ]}
     >
       <span>{classification}</span>
-      <span css={getColor(congestion)}>{congestion}</span>
+      <span css={getColor(congestion)}>{congestion.toFixed(1)}%</span>
     </div>
   );
 };
