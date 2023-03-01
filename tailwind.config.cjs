@@ -65,7 +65,7 @@ module.exports = {
       darker: '#00382f',
       lighter: '#aee4da',
       error: '#F16063',
-      warning: '#F7936F',
+      warning: '#ffcc00',
 
       gray: {
         50: '#FAFAFA',
