@@ -68,3 +68,8 @@ export type SubwayLocation = {
   name: string;
   location: { lat: number; lng: number };
 };
+
+export type InfoProps = {
+  classification: string;
+  congestion: number;
+};

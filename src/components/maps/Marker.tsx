@@ -1,25 +1,25 @@
-import { Info } from '@/types/map';
-import { InfoBoxF, MarkerF } from '@react-google-maps/api';
-import { useState } from 'react';
-import InfoBox from './InfoBox';
+import { MarkerProps } from '@/types/map';
+import { InfoWindowF, MarkerF } from '@react-google-maps/api';
+import { useCallback, useState } from 'react';
+import InfoContainer from './infos/InfoContainer';
 
-const Marker = ({ name, location, line, panTo }: Info) => {
+const Marker = ({ name, location, line, panTo }: MarkerProps) => {
   const [isShown, toggleShown] = useState<boolean>(false);
 
-  const handleToggle = () => {
+  const handleToggle = useCallback(() => {
     if (isShown) toggleShown(false);
     else {
       panTo(location);
       toggleShown(true);
     }
-  };
+  }, [isShown]);
 
   return (
     <MarkerF position={location} onClick={handleToggle}>
       {isShown && (
-        <InfoBoxF onCloseClick={handleToggle}>
-          <InfoBox line={line} name={name} />
-        </InfoBoxF>
+        <InfoWindowF onCloseClick={handleToggle} options={{ minWidth: 150 }}>
+          <InfoContainer line={line} name={name} />
+        </InfoWindowF>
       )}
     </MarkerF>
   );

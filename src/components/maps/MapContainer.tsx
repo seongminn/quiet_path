@@ -1,11 +1,10 @@
 import tw from 'twin.macro';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { LoadScript } from '@react-google-maps/api';
 import { useGeolocation, useMapPanning } from '@/hooks';
 import { SubwayLocation } from '@/types/subway';
 import { getSubwayLocations } from '@/query';
 import { Marker, Map } from '@/components/maps';
-import { Location } from '@/types/map';
 
 const Wrapper = tw.div`
   min-w-[360px] h-full max-h-[90%] rounded-10
@@ -17,14 +16,12 @@ const Wrapper = tw.div`
   mobile:(w-full max-w-[90%])
   `;
 
-const Container = ({ line }: { line: number }) => {
+const MapContainer = ({ line }: { line: number }) => {
   const { VITE_GOOGLE_API_KEY } = import.meta.env;
   const [initialLocation] = useGeolocation();
   const subwayList: SubwayLocation[] = getSubwayLocations({ line });
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const panTo = useMapPanning(map);
-
-  console.log(subwayList);
 
   return (
     <Wrapper>
@@ -45,4 +42,4 @@ const Container = ({ line }: { line: number }) => {
   );
 };
 
-export default Container;
+export default MapContainer;
