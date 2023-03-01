@@ -1,0 +1,23 @@
+import { InfoProps } from '@/types/subway';
+import tw from 'twin.macro';
+
+const Info = ({ classification, congestion }: InfoProps) => {
+  const getColor = (cong: number) => {
+    if (cong >= 40) return tw`text-error`;
+    else if (cong >= 25) return tw`text-warning`;
+    else return tw`text-primary`;
+  };
+
+  return (
+    <div
+      css={[
+        tw`text-14 font-Regular font-normal flex justify-between items-center mb-2 last:(mb-0)`,
+      ]}
+    >
+      <span>{classification}</span>
+      <span css={getColor(congestion)}>{congestion}</span>
+    </div>
+  );
+};
+
+export default Info;

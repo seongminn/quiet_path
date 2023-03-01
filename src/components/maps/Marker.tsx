@@ -1,9 +1,9 @@
-import { Info } from '@/types/map';
+import { Marker } from '@/types/map';
 import { InfoWindowF, MarkerF } from '@react-google-maps/api';
 import { useCallback, useState } from 'react';
-import InfoBox from './InfoBox';
+import InfoContainer from './infos/InfoContainer';
 
-const Marker = ({ name, location, line, panTo }: Info) => {
+const Marker = ({ name, location, line, panTo }: Marker) => {
   const [isShown, toggleShown] = useState<boolean>(false);
 
   const handleToggle = useCallback(() => {
@@ -18,7 +18,7 @@ const Marker = ({ name, location, line, panTo }: Info) => {
     <MarkerF position={location} onClick={handleToggle}>
       {isShown && (
         <InfoWindowF onCloseClick={handleToggle} options={{ minWidth: 150 }}>
-          <InfoBox line={line} name={name} />
+          <InfoContainer line={line} name={name} />
         </InfoWindowF>
       )}
     </MarkerF>
