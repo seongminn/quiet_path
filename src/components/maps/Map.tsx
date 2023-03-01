@@ -24,7 +24,8 @@ const Map = ({ children, location, setMap }: GoogleMapProps) => {
     customButton.textContent = '현재 위치';
     customButton.type = 'button';
     customButton.addEventListener('click', () => {
-      map.panTo(location);
+      if (location) map.panTo(location);
+      else alert('위치를 찾을 수 없습니다 !');
     });
     customButton.addEventListener('mouseover', () => {
       customButton.style.backgroundColor = '#00857A';
