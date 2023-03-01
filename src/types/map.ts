@@ -3,7 +3,7 @@ export type Location = {
   lng: number;
 };
 
-export type Info = {
+export type Marker = {
   name: string;
   location: Location;
   line: number;
