@@ -1,8 +1,9 @@
-import { useDayOfWeek } from '@/hooks';
-import useTime from '@/hooks/useTime';
-import { getCongestion } from '@/query';
 import tw from 'twin.macro';
-import Info from './Info';
+import useTime from '@/hooks/useTime';
+import { useDayOfWeek } from '@/hooks';
+import { getCongestion } from '@/query';
+import { Clocks } from '@/types/subway';
+import { Info, Skeleton } from '.';
 
 const InfoContainer = ({ line, name }: { line: number; name: string }) => {
   const currentDay = useDayOfWeek(new Date());
@@ -11,31 +12,24 @@ const InfoContainer = ({ line, name }: { line: number; name: string }) => {
   });
   const initial = useTime();
 
-  if (!congestion)
-    return (
-      <div css={tw`bg-white w-full animate-pulse`}>
-        <div css={tw`h-15 w-1/2 rounded-2 bg-gray-400 mb-5`}></div>
-        <div css={tw`flex justify-between items-center mb-2`}>
-          <span css={tw`h-8 w-full rounded-2 bg-gray-400`}></span>
-          {/* <span css={tw`h-8 w-3/12 rounded-2 bg-gray-400`}></span> */}
-        </div>
-        <div css={tw`flex justify-between items-center mb-2`}>
-          <span css={tw`h-8 w-8/12 rounded-2 bg-gray-400`}></span>
-          <span css={tw`h-8 w-3/12 rounded-2 bg-gray-400`}></span>
-        </div>
-      </div>
-    );
+  if (!congestion) return <Skeleton />;
 
   return (
     <div css={tw`bg-white w-full`}>
       <h6 css={tw`mb-5`}>{name}</h6>
-      {congestion.map((obj) => (
-        <Info
-          key={`${line}${name}${obj.구분}`}
-          classification={obj.구분}
-          congestion={Number(obj[initial])}
-        />
-      ))}
+      {!initial ? (
+        <span css={tw`text-14 font-Regular font-normal text-gray-600`}>
+          지금은 운행 시간이 아니에요 !
+        </span>
+      ) : (
+        congestion.map((obj) => (
+          <Info
+            key={`${line}${name}${obj.구분}`}
+            classification={obj.구분}
+            congestion={Number(obj[initial])}
+          />
+        ))
+      )}
     </div>
   );
 };
