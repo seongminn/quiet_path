@@ -1,5 +1,5 @@
 import tw from 'twin.macro';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LoadScript } from '@react-google-maps/api';
 import { useGeolocation, useMapPanning } from '@/hooks';
 import { SubwayLocation } from '@/types/subway';
@@ -22,6 +22,40 @@ const MapContainer = ({ line }: { line: number }) => {
   const subwayList: SubwayLocation[] = getSubwayLocations({ line });
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const panTo = useMapPanning(map);
+
+  useEffect(() => {
+    if (map) {
+      map.controls[google.maps.ControlPosition.TOP_LEFT].clear();
+
+      const customButton = document.createElement('button');
+
+      customButton.style.backgroundColor = '#00b890';
+      customButton.style.boxShadow =
+        '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)';
+      customButton.style.padding = '10px';
+      customButton.style.margin = '10px';
+      customButton.style.color = '#fff';
+      customButton.style.fontSize = '16px';
+      customButton.style.outline = 'none';
+      customButton.style.borderRadius = '2px';
+      customButton.style.fontFamily = 'NSRoundBold';
+      customButton.style.transition = 'all 0.15s ease-in-out';
+
+      customButton.textContent = '현재 위치';
+      customButton.type = 'button';
+      customButton.addEventListener('click', () => {
+        map.panTo(initialLocation);
+      });
+      customButton.addEventListener('mouseover', () => {
+        customButton.style.backgroundColor = '#00857A';
+      });
+      customButton.addEventListener('mouseout', () => {
+        customButton.style.backgroundColor = '#00b890';
+      });
+
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(customButton);
+    }
+  }, [map, initialLocation]);
 
   return (
     <Wrapper>
