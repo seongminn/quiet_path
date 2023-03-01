@@ -25,6 +25,8 @@ const MapContainer = ({ line }: { line: number }) => {
 
   useEffect(() => {
     if (map) {
+      map.controls[google.maps.ControlPosition.TOP_LEFT].clear();
+
       const customButton = document.createElement('button');
 
       customButton.style.backgroundColor = '#00b890';
