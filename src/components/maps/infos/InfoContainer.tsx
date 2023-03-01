@@ -17,7 +17,7 @@ const InfoContainer = ({ line, name }: { line: number; name: string }) => {
     <div css={tw`bg-white w-full`}>
       <h6 css={tw`mb-5`}>{name}</h6>
 
-      {congestion?.map((obj) => (
+      {congestion.map((obj) => (
         <Info
           key={`${line}${name}${obj.구분}`}
           classification={obj.구분}
