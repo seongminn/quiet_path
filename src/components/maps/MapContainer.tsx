@@ -53,7 +53,7 @@ const MapContainer = ({ line }: { line: number }) => {
 
       map.controls[google.maps.ControlPosition.TOP_LEFT].push(customButton);
     }
-  }, [map]);
+  }, [map, initialLocation]);
 
   return (
     <Wrapper>
