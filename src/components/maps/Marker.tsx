@@ -17,7 +17,7 @@ const Marker = ({ name, location, line, panTo }: Info) => {
   return (
     <MarkerF position={location} onClick={handleToggle}>
       {isShown && (
-        <InfoWindowF>
+        <InfoWindowF onCloseClick={handleToggle} options={{ minWidth: 150 }}>
           <InfoBox line={line} name={name} />
         </InfoWindowF>
       )}
