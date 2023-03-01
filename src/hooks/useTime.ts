@@ -1,9 +1,9 @@
+import { Clocks } from '@/types/subway';
 import { useCallback, useMemo } from 'react';
 
 const useTime = () => {
   const getTimeString = useCallback((time: number) => {
     return time.toString().padStart(2, '0');
-    // return ('0' + time).slice(-2); 뭐가 더 효율적일까?
   }, []);
 
   const now = useMemo(() => new Date(), []);
@@ -24,8 +24,15 @@ const useTime = () => {
     () => getTimeString(minute),
     [getTimeString, minute]
   );
+  const currentTime = `${hourString}시${minuteString}분`;
 
-  return `${hourString}시${minuteString}분`;
+  if (currentTime in Clocks) {
+    // 현재 시간이 Clocks 타입에 속하는 경우
+    return currentTime;
+  } else {
+    // 현재 시간이 Clocks 타입에 속하지 않는 경우
+    return false;
+  }
 };
 
 export default useTime;
