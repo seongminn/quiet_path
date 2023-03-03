@@ -1,46 +1,27 @@
 import { MapContainer } from '@/components/maps';
 import { useState } from 'react';
+import { SubwayList } from '@/components/subway';
+import { Gnb } from '@/components/common/Gnb';
 import tw from 'twin.macro';
 
 const Wrapper = tw.div`h-screen flex-center`;
 
 const MainSection = tw.section`
-  w-2/3 h-4/5 min-w-[440px] min-h-[500px] rounded-10 px-40
+  w-2/3 h-4/5 min-w-[440px] min-h-[500px] rounded-10 pr-40
   bg-white drop-shadow-lg
 
-  laptop:(flex items-center flex-row gap-40 justify-around)
-
-  mobile:(flex flex-col-reverse justify-end items-center px-20)
-`;
-
-const SubwayList = tw.div`
-  border-1 border-gray-400 rounded-5 
-  bg-white drop-shadow-md
-
-  laptop:(w-[320px])
-
-  mobile:(w-full max-w-[360px])
+  laptop:(flex items-center flex-row gap-40 justify-between)
+  mobile:(flex flex-col-reverse justify-end items-center pr-20)
 `;
 
 const MainPage = () => {
   const [line, setLine] = useState<number>(1);
-  const handleLine = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLine(Number(e.target.value));
-  };
 
   return (
     <Wrapper>
       <MainSection>
-        <div>
-          <input
-            type='number'
-            value={line}
-            onChange={handleLine}
-            max={8}
-            min={1}
-          />
-          <SubwayList>여기</SubwayList>
-        </div>
+        <Gnb />
+        <SubwayList line={line} setLine={setLine} />
         <MapContainer line={line} />
       </MainSection>
     </Wrapper>
