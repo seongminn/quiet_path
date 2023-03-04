@@ -10,7 +10,6 @@ const Menu = ({
   strokeWidth = 1.2,
   styles,
   title,
-  children,
 }: {
   icon: string;
   width: number;
@@ -18,7 +17,6 @@ const Menu = ({
   strokeWidth?: number;
   title?: string;
   styles?: any;
-  children?: ReactNode;
 }) => {
   return (
     <div css={[tw`flex justify-between items-center w-full`]}>
@@ -26,9 +24,6 @@ const Menu = ({
         <div css={[styles]}>{SvgIcon[icon](width, height, strokeWidth)}</div>
         <p css={tw`p-10`}>{title}</p>
       </div>
-      {children && (
-        <DownIcon width={12} height={12} css={tw`p-0 hover:(bg-current)`} />
-      )}
     </div>
   );
 };
