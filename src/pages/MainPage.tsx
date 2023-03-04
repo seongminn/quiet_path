@@ -24,7 +24,7 @@ const MainPage = () => {
     <Wrapper>
       <MainSection>
         <Gnb />
-        <div css={tw`flex justify-around items-center w-full h-5/6`}>
+        <div css={tw`flex justify-around items-center gap-20 w-full h-5/6`}>
           <SubwayList line={line} setLine={setLine} subwayList={subwayList} />
           <MapContainer line={line} subwayList={subwayList} />
         </div>

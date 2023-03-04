@@ -1,10 +1,17 @@
 import { SubwayLocation } from '@/types/subway';
 import { InfoContainer } from '@/components/maps/infos';
-import tw, { styled } from 'twin.macro';
+import tw, { css, styled } from 'twin.macro';
+import colorConverter from '@/lib/colorConverter';
 
 const Container = styled.section([
   tw`flex flex-col justify-start items-start`,
-  tw`min-w-[300px] h-5/6 rounded-10`,
+  tw`min-w-[300px] max-w-[450px] w-full h-5/6 rounded-10`,
+]);
+
+const SubwayName = styled.h4<{ name: string }>(({ name }) => [
+  css({
+    color: colorConverter[`${name}`],
+  }),
 ]);
 
 const List = tw.div`
@@ -38,7 +45,7 @@ const SubwayList = ({
 
   return (
     <Container>
-      <h4>{line}호선</h4>
+      <SubwayName name={`${line}호선`}>{line}호선</SubwayName>
       {/* <div css={[tw`h-full w-full rounded-5 mt-20`]}>
         {subways.map((subway) => (
           <List key={subway + '호선'} onClick={handleLine}>
@@ -48,7 +55,7 @@ const SubwayList = ({
       </div> */}
       <div
         css={[
-          tw`flex-stack gap-20 h-full w-full pt-10 rounded-5 mt-20  overflow-y-scroll`,
+          tw`flex flex-col justify-start gap-20 h-full w-full pt-10 rounded-5 mt-20  overflow-y-scroll`,
         ]}
       >
         {subwayList?.map((item) => (
