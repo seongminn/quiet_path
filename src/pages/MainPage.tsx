@@ -1,8 +1,10 @@
 import { MapContainer } from '@/components/maps';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { SubwayList } from '@/components/subway';
 import { Gnb } from '@/components/common/Gnb';
 import tw from 'twin.macro';
+import { getSubwayLocations } from '@/query';
+import { SubwayLocation } from '@/types/subway';
 
 const Wrapper = tw.div`h-screen flex-center`;
 
@@ -16,13 +18,16 @@ const MainSection = tw.section`
 
 const MainPage = () => {
   const [line, setLine] = useState<number>(1);
+  const subwayList: SubwayLocation[] = getSubwayLocations({ line });
 
   return (
     <Wrapper>
       <MainSection>
         <Gnb />
-        <SubwayList line={line} setLine={setLine} />
-        <MapContainer line={line} />
+        <div css={tw`flex justify-around items-center gap-20 w-full h-5/6`}>
+          <SubwayList line={line} setLine={setLine} subwayList={subwayList} />
+          <MapContainer line={line} subwayList={subwayList} />
+        </div>
       </MainSection>
     </Wrapper>
   );
