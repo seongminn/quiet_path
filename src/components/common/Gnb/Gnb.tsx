@@ -13,7 +13,7 @@ const MenuContainer = styled.div<{ open: boolean }>(({ open }) => [
   tw`fixed left-2 top-2 duration-150`,
   tw`flex flex-col h-[99.5%] bg-gray-200 rounded-8 z-50 cursor-pointer`,
 
-  open ? tw`w-[220px]` : tw`w-70`,
+  open ? tw`w-200` : tw`w-70`,
 
   tw`[svg]:(box-content duration-100 rounded-7 p-10 m-0 hover:(bg-gray-400))`,
   tw`[li > div > svg]:(p-5 hover:(bg-transparent))`,
@@ -50,9 +50,12 @@ const Gnb = () => {
         <List open={open}>
           <ul>
             <li>
-              <Menu icon={'metro'} width={28} height={28} title='지하철 혼잡도'>
-                {[1, 2, 3, 4, 5]}
-              </Menu>
+              <Menu
+                icon={'metro'}
+                width={28}
+                height={28}
+                title='지하철 혼잡도'
+              />
             </li>
             <li>
               <Menu icon={'people'} width={28} height={28} title='사람들' />
