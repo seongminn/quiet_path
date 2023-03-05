@@ -6,6 +6,9 @@ import { useState } from 'react';
 const TopContainer = styled.div([
   tw`relative flex items-center cursor-pointer`,
   tw`hover:([svg]:animate-bounce)`,
+
+  tw`mobile:p-0 mb-20`,
+  tw`laptop:p-0`,
 ]);
 
 const Title = styled.h4<{ name: string }>(({ name }) => [
@@ -40,7 +43,7 @@ const SubwayName = ({
   };
 
   return (
-    <div css={tw``}>
+    <div css={tw`flex-1`}>
       <TopContainer onClick={handleToggle}>
         <Title name={`${line}`}>{line}호선</Title>
         <DownIcon width={18} height={18} css={tw`ml-20`} />
