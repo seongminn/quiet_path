@@ -39,8 +39,7 @@ module.exports = {
       mobile: '360px', // @media (min-width: 360px)
       foldable: '523px', // @media (min-width: 523px)
       tablet: '768px', // @media (min-width: 768px)
-      laptop: '976px',
-      desktop: '1440px',
+      laptop: '1350px',
     },
 
     extend: {

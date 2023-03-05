@@ -1,5 +1,5 @@
 import { MapContainer } from '@/components/maps';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { SubwayList } from '@/components/subway';
 import { Gnb } from '@/components/common/Gnb';
 import tw from 'twin.macro';
@@ -11,9 +11,9 @@ const Wrapper = tw.div`h-screen flex-center`;
 const MainSection = tw.section`
   w-2/3 h-4/5 min-w-[440px] min-h-[500px] rounded-10 pr-40
   bg-white drop-shadow-lg
+  flex items-center flex-row justify-between 
 
-  laptop:(flex items-center flex-row gap-40 justify-between)
-  mobile:(flex flex-col-reverse justify-end items-center pr-20)
+  mobile:(px-40)
 `;
 
 const MainPage = () => {
@@ -24,7 +24,13 @@ const MainPage = () => {
     <Wrapper>
       <MainSection>
         <Gnb />
-        <div css={tw`flex justify-around items-center gap-20 w-full h-5/6`}>
+        <div
+          css={[
+            tw`mobile:(flex-stack w-full h-5/6)`,
+            tw`laptop:(flex flex-row justify-around items-center gap-20 w-full h-5/6)`,
+            // tw`laptop:(grid [grid-template-columns: 1fr 1fr] overflow-y-scroll gap-20 w-full h-5/6)`,
+          ]}
+        >
           <SubwayList line={line} setLine={setLine} subwayList={subwayList} />
           <MapContainer line={line} subwayList={subwayList} />
         </div>
