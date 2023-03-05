@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { LoadScript } from '@react-google-maps/api';
 import { useGeolocation, useMapPanning } from '@/hooks';
 import { SubwayLocation } from '@/types/subway';
-import { getSubwayLocations } from '@/query';
 import { Marker, Map } from '@/components/maps';
 
 const Wrapper = tw.div`

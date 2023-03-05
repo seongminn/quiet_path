@@ -1,12 +1,6 @@
-import React from 'react';
 import { Global } from '@emotion/react';
-import tw, { css, GlobalStyles as BaseStyles, theme } from 'twin.macro';
-
-// const customStyles = css`
-//   body {
-//     ${tw`text-gray-800 dark:text-gray-300 antialiased dark:bg-gray-900`}
-//   }
-// `;
+import { Fragment } from 'react';
+import tw, { css, GlobalStyles as BaseStyles } from 'twin.macro';
 
 export const customStyles = css({
   '*, *::before, *::after': tw`box-border`,
@@ -27,10 +21,10 @@ export const customStyles = css({
 });
 
 const GlobalStyles = () => (
-  <>
+  <Fragment>
     <BaseStyles />
     <Global styles={customStyles} />
-  </>
+  </Fragment>
 );
 
 export default GlobalStyles;

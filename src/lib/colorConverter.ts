@@ -1,4 +1,3 @@
-import { Theme } from '@emotion/react';
 import { theme } from 'twin.macro';
 
 const colorConverter: { [key: string]: string } = {

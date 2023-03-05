@@ -30,31 +30,6 @@ const useGeolocation = (): [
     }
   }, []);
 
-  // const onSuccess = (position: {
-  //   coords: { latitude: number; longitude: number };
-  // }) => {
-  //   setLocation({
-  //     coordinates: {
-  //       lat: position.coords.latitude,
-  //       lng: position.coords.longitude,
-  //     },
-  //   });
-  // };
-
-  // const onError = () => {
-  //   setLocation({
-  //     coordinates: { lat: 37.56359, lng: 126.975407 },
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   if (!('geolocation' in navigator)) {
-  //     onError();
-  //   }
-
-  //   navigator.geolocation.getCurrentPosition(onSuccess, onError);
-  // }, []);
-
   return [location, setLocation];
 };
 
