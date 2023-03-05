@@ -1,6 +1,4 @@
 import SvgIcon from '@/components/common/Icon/SvgIcon';
-import { ReactComponent as DownIcon } from '@/assets/icons/icon-chevron-down.svg';
-import { ReactNode } from 'react';
 import tw from 'twin.macro';
 
 const Menu = ({

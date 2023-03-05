@@ -26,7 +26,7 @@ const useTime = () => {
   );
   const currentTime = `${hourString}시${minuteString}분`;
 
-  if (currentTime in Clocks) {
+  if (Clocks.includes(currentTime)) {
     // 현재 시간이 Clocks 타입에 속하는 경우
     return currentTime;
   } else {

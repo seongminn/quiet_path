@@ -1,5 +1,5 @@
 import { MapContainer } from '@/components/maps';
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { SubwayList } from '@/components/subway';
 import { Gnb } from '@/components/common/Gnb';
 import tw from 'twin.macro';
