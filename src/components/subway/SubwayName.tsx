@@ -17,7 +17,7 @@ const Title = styled.h4<{ name: string }>(({ name }) => [
 const DropdownContainer = styled.div<{ isDropped: boolean }>(
   ({ isDropped }) => [
     tw`absolute w-full min-w-200 max-w-max bg-white rounded-5 z-50 drop-shadow-xl border-1 mt-10`,
-    isDropped ? tw`opacity-100` : tw`opacity-0`,
+    isDropped ? tw`opacity-100` : tw`opacity-0 z-[-1]`,
   ]
 );
 

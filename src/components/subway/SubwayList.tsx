@@ -1,7 +1,6 @@
 import { SubwayLocation } from '@/types/subway';
 import { InfoContainer } from '@/components/maps/infos';
-import tw, { css, styled } from 'twin.macro';
-import colorConverter from '@/lib/colorConverter';
+import tw, { styled } from 'twin.macro';
 import SubwayName from './SubwayName';
 
 const Container = styled.section([
@@ -15,10 +14,6 @@ const List = tw.div`
   laptop:(w-[320px])
   mobile:(w-full max-w-[360px])
 `;
-
-const Category = styled.div<{ isActive: boolean }>(({ isActive }) => [
-  tw`flex justify-center items-center`,
-]);
 
 const SubwayList = ({
   line,
