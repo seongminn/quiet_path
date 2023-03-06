@@ -3,14 +3,13 @@
   font-style: normal;
   src: local(NanumSquareRoundB);
   src: url('../assets/fonts/NanumSquareRoundB.woff2') format('woff2');
-  src: url('../assets/fonts/NanumSquareRoundB.woff2') format('woff');
+  font-display: fallback;
 }
 
 @font-face {
   font-family: NSRoundRegular;
-  font-weight: normal;
   font-style: normal;
   src: local(NanumSquareRoundR);
   src: url('../assets/fonts/NanumSquareRoundR.woff2') format('woff2');
-  src: url('../assets/fonts/NanumSquareRoundR.woff2') format('woff');
+  font-display: fallback;
 }
