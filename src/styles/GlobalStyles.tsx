@@ -8,7 +8,7 @@ export const customStyles = css({
     tw`text-16 leading-24 tracking-[0] text-black`,
     tw`bg-gray-300 m-0 p-0 h-full`,
     {
-      fontFamily: `NSRoundRegular, AppleSDGothicNeo,-apple-system, BlinkMacSystemFont, Segoe, UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira, Sans, Droid, Sans, Helvetica, Neue, sans-serif`,
+      fontFamily: `NSRoundRegular, AppleSDGothicNeo, sans-serif`,
     },
   ],
 
