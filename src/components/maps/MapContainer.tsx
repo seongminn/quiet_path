@@ -6,7 +6,7 @@ import { SubwayLocation } from '@/types/subway';
 import { Marker, Map } from '@/components/maps';
 
 const Wrapper = tw.div`
-  min-w-[360px] h-full rounded-10 overflow-y-hidden
+  min-w-[400px] h-full rounded-10 overflow-y-hidden
   shadow-gray-300 drop-shadow-lg
   flex-center flex-1
 
