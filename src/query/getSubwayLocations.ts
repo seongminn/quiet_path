@@ -3,19 +3,25 @@ import { URLs } from '@/api/url';
 import { QueryKey } from '@/query/queryKey';
 import { useQuery } from 'react-query';
 
+type LocationType = {
+  name: string;
+  lat: number;
+  lng: number;
+};
+
 const getSubwayLocations = ({ line }: { line: number }) => {
-  const { data: latLngData } = useQuery(QueryKey.LAT_LNG, () =>
-    fetcher({ path: URLs.LAT_LNG, page: 1, perPage: 2000 })
+  const PATH = `STATION_${line}`;
+  const { data: locationData } = useQuery<LocationType[]>(
+    [QueryKey.STATION, line],
+    () => fetcher({ path: URLs[PATH] })
   );
 
-  const subwayLocations = latLngData?.data
-    .filter((obj: any) => obj.호선 === line)
-    .map((item: any) => ({
-      name: `${item.역명}역`,
-      location: { lat: Number(item.위도), lng: Number(item.경도) },
-    }));
+  if (!locationData) return;
 
-  return subwayLocations;
+  return locationData.map((location: LocationType) => ({
+    name: `${location.name}역`,
+    location: { lat: location.lat, lng: location.lng },
+  }));
 };
 
 export default getSubwayLocations;

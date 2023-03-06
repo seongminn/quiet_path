@@ -8,12 +8,14 @@ export const fetcher = async ({
   perPage,
 }: {
   path: string;
-  page: number;
-  perPage: number;
+  page?: number;
+  perPage?: number;
 }) => {
-  const URL = `${VITE_BASE_URL}${path}?page=${page}&perPage=${perPage}&serviceKey=${VITE_API_KEY}`;
+  let URL;
 
-  `${VITE_BASE_URL}${path}?page=1&perPage=10&serviceKey=${VITE_API_KEY}`;
+  if (!(page || perPage)) URL = path;
+  else
+    URL = `${VITE_BASE_URL}${path}?page=${page}&perPage=${perPage}&serviceKey=${VITE_API_KEY}`;
 
   try {
     const { data } = await axios.get(URL);
