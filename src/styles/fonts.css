@@ -2,8 +2,8 @@
   font-family: NSRoundBold;
   font-style: normal;
   src: local(NanumSquareRoundB);
-  src: url('../assets/fonts/NanumSquareRoundB') format('woff2');
-  src: url('../assets/fonts/NanumSquareRoundB') format('woff');
+  src: url('../assets/fonts/NanumSquareRoundB.woff2') format('woff2');
+  src: url('../assets/fonts/NanumSquareRoundB.woff2') format('woff');
 }
 
 @font-face {
@@ -11,6 +11,6 @@
   font-weight: normal;
   font-style: normal;
   src: local(NanumSquareRoundR);
-  src: url('../assets/fonts/NanumSquareRoundR') format('woff2');
-  src: url('../assets/fonts/NanumSquareRoundR') format('woff');
+  src: url('../assets/fonts/NanumSquareRoundR.woff2') format('woff2');
+  src: url('../assets/fonts/NanumSquareRoundR.woff2') format('woff');
 }
