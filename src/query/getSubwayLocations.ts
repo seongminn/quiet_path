@@ -1,26 +1,21 @@
 import { fetcher } from '@/api/fetcher';
 import { URLs } from '@/api/url';
 import { QueryKey } from '@/query/queryKey';
+import { SubwayLocation } from '@/types/subway';
 import { useQuery } from 'react-query';
-
-type LocationType = {
-  name: string;
-  lat: number;
-  lng: number;
-};
 
 const getSubwayLocations = ({ line }: { line: number }) => {
   const PATH = `STATION_${line}`;
-  const { data: locationData } = useQuery<LocationType[]>(
+  const { data: locationData } = useQuery<SubwayLocation[]>(
     [QueryKey.STATION, line],
     () => fetcher({ path: URLs[PATH] })
   );
 
   if (!locationData) return [];
 
-  return locationData.map((location: LocationType) => ({
-    name: `${location.name}역`,
-    location: { lat: location.lat, lng: location.lng },
+  return locationData.map(({ name, location }) => ({
+    name: `${name}역`,
+    location: location,
   }));
 };
 
