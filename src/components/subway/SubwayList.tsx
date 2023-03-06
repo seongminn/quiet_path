@@ -5,7 +5,7 @@ import SubwayName from './SubwayName';
 
 const Container = styled.section([
   tw`mobile:(w-full h-auto)`,
-  tw`laptop:(flex flex-col justify-start items-start min-w-[300px] max-w-[450px] w-full h-full rounded-10 mr-40 pr-20)`,
+  tw`laptop:(flex flex-col justify-start items-start min-w-[150px] max-w-[450px] w-full h-full rounded-10 mr-40 pr-20)`,
 ]);
 
 const List = tw.div`
