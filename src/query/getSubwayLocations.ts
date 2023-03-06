@@ -16,7 +16,7 @@ const getSubwayLocations = ({ line }: { line: number }) => {
     () => fetcher({ path: URLs[PATH] })
   );
 
-  if (!locationData) return;
+  if (!locationData) return [];
 
   return locationData.map((location: LocationType) => ({
     name: `${location.name}역`,
