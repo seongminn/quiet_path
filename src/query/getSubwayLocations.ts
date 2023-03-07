@@ -1,21 +1,32 @@
 import { fetcher } from '@/api/fetcher';
 import { URLs } from '@/api/url';
 import { QueryKey } from '@/query/queryKey';
+import {
+  ResponseProps,
+  SubwayLocationApi,
+  SubwayLocationObj,
+} from '@/types/subway';
 import { useQuery } from 'react-query';
 
-const getSubwayLocations = ({ line }: { line: number }) => {
-  const { data: latLngData } = useQuery(QueryKey.LAT_LNG, () =>
-    fetcher({ path: URLs.LAT_LNG, page: 1, perPage: 2000 })
+const getSubwayLocations = ({
+  line,
+}: {
+  line: number;
+}): SubwayLocationObj[] => {
+  const PATH = `STATION_${line}`;
+  const { data: locationData } = useQuery<ResponseProps<SubwayLocationApi>>(
+    [QueryKey.STATION, line],
+    () => fetcher({ path: URLs[PATH] })
   );
 
-  const subwayLocations = latLngData?.data
-    .filter((obj: any) => obj.호선 === line)
-    .map((item: any) => ({
-      name: `${item.역명}역`,
-      location: { lat: Number(item.위도), lng: Number(item.경도) },
-    }));
+  if (!locationData) return [];
 
-  return subwayLocations;
+  return locationData.data
+    .filter((data) => data.철도운영기관명 === '서울교통공사')
+    .map(({ 역명, 위도, 경도 }) => ({
+      name: `${역명}역`,
+      location: { lat: Number(위도), lng: Number(경도) },
+    }));
 };
 
 export default getSubwayLocations;

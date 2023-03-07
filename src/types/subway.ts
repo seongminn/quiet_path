@@ -1,3 +1,5 @@
+import { Location } from './map';
+
 export const Clocks = [
   '5시30분',
   '6시00분',
@@ -40,7 +42,7 @@ export const Clocks = [
 
 type ClocksType = typeof Clocks[number];
 
-export type SubwayCongestion = {
+export type SubwayCongestionApi = {
   연번: number;
   조사일자: string;
   호선: number;
@@ -51,13 +53,20 @@ export type SubwayCongestion = {
   [key in ClocksType as string]: string;
 };
 
-export type ResponseProps = {
+export type SubwayLocationApi = {
+  철도운영기관명: string;
+  역명: string;
+  위도: number;
+  경도: number;
+};
+
+export type ResponseProps<DataProp> = {
   page: number;
   perPage: number;
   totalCount: number;
   currentCount: number;
   matchCount: number;
-  data: SubwayCongestion[];
+  data: DataProp[];
 };
 
 export type InvestigatedDate = '평일' | '토요일' | '일요일';
@@ -67,9 +76,9 @@ export type RequestProps = {
   investigatedDate?: InvestigatedDate;
 };
 
-export type SubwayLocation = {
+export type SubwayLocationObj = {
   name: string;
-  location: { lat: number; lng: number };
+  location: Location;
 };
 
 export type InfoProps = {

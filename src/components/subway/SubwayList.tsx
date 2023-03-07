@@ -1,4 +1,4 @@
-import { SubwayLocation } from '@/types/subway';
+import { SubwayLocationObj } from '@/types/subway';
 import { InfoContainer } from '@/components/maps/infos';
 import tw, { styled } from 'twin.macro';
 import SubwayName from './SubwayName';
@@ -19,7 +19,7 @@ const SubwayList = ({
 }: {
   line: number;
   setLine: React.Dispatch<React.SetStateAction<number>>;
-  subwayList: SubwayLocation[] | null;
+  subwayList: SubwayLocationObj[] | null;
 }) => {
   return (
     <Container>
