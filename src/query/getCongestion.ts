@@ -1,13 +1,17 @@
 import { useQuery } from 'react-query';
 import { QueryKey } from '@/query/queryKey';
-import { RequestProps, ResponseProps } from '@/types/subway';
+import {
+  RequestProps,
+  ResponseProps,
+  SubwayCongestionApi,
+} from '@/types/subway';
 import { fetcher } from '@/api/fetcher';
 import { URLs } from '@/api/url';
 
 const getCongestion = ({ line, investigatedDate = '평일' }: RequestProps) => {
-  const { data: congestionData } = useQuery<ResponseProps>(
+  const { data: congestionData } = useQuery<ResponseProps<SubwayCongestionApi>>(
     QueryKey.CONGESTION,
-    () => fetcher({ path: URLs.CONGESTION, page: 1, perPage: 2000 })
+    () => fetcher({ path: URLs.CONGESTION })
   );
 
   return congestionData?.data.filter(

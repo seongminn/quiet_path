@@ -2,7 +2,7 @@ import tw from 'twin.macro';
 import { useEffect, useState } from 'react';
 import { LoadScript } from '@react-google-maps/api';
 import { useGeolocation, useMapPanning } from '@/hooks';
-import { SubwayLocation } from '@/types/subway';
+import { SubwayLocationObj } from '@/types/subway';
 import { Marker, Map } from '@/components/maps';
 
 const Wrapper = tw.div`
@@ -18,7 +18,7 @@ const MapContainer = ({
   subwayList,
 }: {
   line: number;
-  subwayList: SubwayLocation[] | null;
+  subwayList: SubwayLocationObj[] | null;
 }) => {
   const { VITE_GOOGLE_API_KEY } = import.meta.env;
   const [initialLocation] = useGeolocation();
@@ -65,7 +65,7 @@ const MapContainer = ({
         <Map location={initialLocation} setMap={setMap}>
           {subwayList?.map(({ location, name }) => (
             <Marker
-              key={name}
+              key={name + line}
               location={location}
               name={name}
               line={line}
