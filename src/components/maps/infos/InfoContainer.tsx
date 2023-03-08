@@ -6,7 +6,10 @@ import { Info, Skeleton } from '.';
 const InfoContainer = ({ line, name }: { line: number; name: string }) => {
   const currentDay = useDayOfWeek(new Date());
   const congestion = getCongestion({ line })?.filter((item) => {
-    return `${item.역명}역` === name && `${item.조사일자} === ${currentDay}`;
+    return (
+      `${item.역명}` === name.split('(')[0] &&
+      `${item.조사일자} === ${currentDay}`
+    );
   });
   const initial = useTime();
 
