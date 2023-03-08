@@ -1,5 +1,5 @@
 import { MapContainer } from '@/components/maps';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SubwayList } from '@/components/subway';
 import { Gnb } from '@/components/common/Gnb';
 import tw from 'twin.macro';
@@ -19,6 +19,10 @@ const MainSection = tw.section`
 const MainPage = () => {
   const [line, setLine] = useState<number>(1);
   const subwayList: SubwayLocationObj[] = getSubwayLocations({ line });
+
+  useEffect(() => {
+    document.title = '누리길 | 조용한 귀가를 누리길';
+  }, []);
 
   return (
     <Wrapper>
