@@ -44,7 +44,7 @@ type ClocksType = typeof Clocks[number];
 
 export type SubwayCongestionApi = {
   연번: number;
-  조사일자: string;
+  조사일자: InvestigatedDate;
   호선: number;
   역번호: number;
   역명: string;
@@ -69,7 +69,7 @@ export type ResponseProps<DataProp> = {
   data: DataProp[];
 };
 
-export type InvestigatedDate = '평일' | '토요일' | '일요일';
+export type InvestigatedDate = '평일' | '토요일' | '일요일' | string;
 
 export type RequestProps = {
   line: number;

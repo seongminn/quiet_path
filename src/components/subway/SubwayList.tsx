@@ -3,6 +3,8 @@ import { InfoContainer } from '@/components/maps/infos';
 import tw, { styled } from 'twin.macro';
 import SubwayName from './SubwayName';
 import Button from '../common/Button/Button';
+import { useRecoilState } from 'recoil';
+import { dayState } from '@/recoil/atoms/dayState';
 
 const Container = styled.section([
   tw`mobile:(w-full h-auto)`,
@@ -22,13 +24,35 @@ const SubwayList = ({
   setLine: React.Dispatch<React.SetStateAction<number>>;
   subwayList: SubwayLocationObj[] | null;
 }) => {
+  const [days, setDays] = useRecoilState(dayState);
+  const handleDays = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!e.currentTarget.textContent) return;
+
+    setDays(e.currentTarget.textContent);
+  };
+
   return (
     <Container>
-      <SubwayName line={line} setLine={setLine} />
-      <div tw='flex'>
-        <Button>평일</Button>
-        <Button>토요일</Button>
-        <Button>일요일</Button>
+      <div css={tw`flex justify-between items-center w-full`}>
+        <SubwayName line={line} setLine={setLine} />
+        <div tw='inline-flex' role='group'>
+          <Button
+            onClick={handleDays}
+            type={days === '평일' ? 'primary' : 'default'}
+            size='small'
+            props={[tw`text-14 mb-20`]}
+          >
+            평일
+          </Button>
+          <Button
+            onClick={handleDays}
+            type={days === '토요일' ? 'primary' : 'default'}
+            size='small'
+            props={[tw`text-14 mb-20`]}
+          >
+            토요일
+          </Button>
+        </div>
       </div>
       <div
         css={[

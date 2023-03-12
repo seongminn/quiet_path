@@ -1,15 +1,17 @@
 import tw from 'twin.macro';
 import { useDayOfWeek, useTime } from '@/hooks';
+import { useRecoilValue } from 'recoil';
 import { getCongestion } from '@/query';
 import { Info, Skeleton } from '.';
+import { dayState } from '@/recoil/atoms/dayState';
 
 const InfoContainer = ({ line, name }: { line: number; name: string }) => {
-  const currentDay = useDayOfWeek(new Date());
-  const congestion = getCongestion({ line })?.filter((item) => {
-    return (
-      `${item.역명}` === name.split('(')[0] &&
-      `${item.조사일자} === ${currentDay}`
-    );
+  const days = useRecoilValue(dayState);
+  const congestion = getCongestion({
+    line,
+    investigatedDate: days,
+  })?.filter((item) => {
+    return `${item.역명}` === name.split('(')[0];
   });
   const initial = useTime();
 

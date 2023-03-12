@@ -32,7 +32,6 @@ const MainPage = () => {
           css={[
             tw`mobile:(flex-stack w-full h-5/6)`,
             tw`laptop:(flex flex-row justify-around items-center gap-20 w-full h-5/6)`,
-            // tw`laptop:(grid [grid-template-columns: 1fr 1fr] overflow-y-scroll gap-20 w-full h-5/6)`,
           ]}
         >
           <SubwayList line={line} setLine={setLine} subwayList={subwayList} />
