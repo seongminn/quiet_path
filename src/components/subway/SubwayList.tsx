@@ -2,6 +2,7 @@ import { SubwayLocationObj } from '@/types/subway';
 import { InfoContainer } from '@/components/maps/infos';
 import tw, { styled } from 'twin.macro';
 import SubwayName from './SubwayName';
+import Button from '../common/Button/Button';
 
 const Container = styled.section([
   tw`mobile:(w-full h-auto)`,
@@ -24,6 +25,11 @@ const SubwayList = ({
   return (
     <Container>
       <SubwayName line={line} setLine={setLine} />
+      <div tw='flex'>
+        <Button>평일</Button>
+        <Button>토요일</Button>
+        <Button>일요일</Button>
+      </div>
       <div
         css={[
           tw`flex flex-col justify-start overflow-y-scroll`,
