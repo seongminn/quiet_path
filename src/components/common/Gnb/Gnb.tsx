@@ -55,13 +55,8 @@ const Gnb = () => {
                 width={28}
                 height={28}
                 title='지하철 혼잡도'
+                link={'/'}
               />
-            </li>
-            <li>
-              <Menu icon={'people'} width={28} height={28} title='사람들' />
-            </li>
-            <li>
-              <Menu icon={'map'} width={28} height={28} title='지도' />
             </li>
           </ul>
         </List>
