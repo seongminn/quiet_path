@@ -4,12 +4,12 @@ import tw, { styled } from 'twin.macro';
 import { SubwayName, Days } from '.';
 
 const Container = styled.section([
-  tw`mobile:(w-full h-auto)`,
-  tw`laptop:(flex flex-col justify-start items-start min-w-[150px] max-w-[450px] w-full h-full rounded-10 mr-40 pr-20)`,
+  tw`w-full h-auto`,
+  tw`laptop:(flex flex-col justify-start items-start min-w-[150px] max-w-[350px] w-full h-full rounded-10 mr-20)`,
 ]);
 
 const List = tw.div`
-  py-10 pr-40 w-full
+  py-10 pr-20 w-full
 `;
 
 const SubwayList = ({
@@ -27,8 +27,7 @@ const SubwayList = ({
       </div>
       <div
         css={[
-          tw`flex flex-col justify-start overflow-y-scroll`,
-          tw`mobile:(hidden)`,
+          tw`flex flex-col justify-start overflow-y-scroll hidden`,
           tw`laptop:(flex flex-col justify-start gap-20 h-full w-full pt-10 rounded-5 mt-20)`,
         ]}
       >

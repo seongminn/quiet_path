@@ -6,11 +6,11 @@ import { SubwayLocationObj } from '@/types/subway';
 import { Marker, Map } from '@/components/maps';
 
 const Wrapper = tw.div`
-  min-w-[400px] h-full rounded-10 overflow-y-hidden
+  h-full rounded-10 overflow-y-hidden
   shadow-gray-300 drop-shadow-lg
   flex-center flex-1
-
-  mobile:(w-full)
+  w-full max-w-[100%]
+  laptop:max-w-[55%]
   `;
 
 const MapContainer = ({

@@ -1,5 +1,5 @@
 import tw from 'twin.macro';
-import { useDayOfWeek, useTime } from '@/hooks';
+import { useTime } from '@/hooks';
 import { useRecoilValue } from 'recoil';
 import { getCongestion } from '@/query';
 import { Info, Skeleton } from '.';
