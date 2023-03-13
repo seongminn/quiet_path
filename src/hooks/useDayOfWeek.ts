@@ -1,10 +1,10 @@
-const getDayOfWeek = (date: Date | number) => {
-  const weekdays = ['일요일', '평일', '평일', '평일', '평일', '평일', '토요일'];
+import { useMemo } from 'react';
 
-  if (typeof date === 'number') {
-    return weekdays[date];
-  }
-
+const getDayOfWeek = (date: Date) => {
+  const weekdays = useMemo(
+    () => ['일요일', '평일', '평일', '평일', '평일', '평일', '토요일'],
+    []
+  );
   const dayOfWeek = (date as Date).getDay();
 
   return weekdays[dayOfWeek];
