@@ -1,16 +1,15 @@
 import { useEffect } from 'react';
 import { Gnb } from '@/components/common/Gnb';
-import tw from 'twin.macro';
 import { Outlet } from 'react-router-dom';
+import tw from 'twin.macro';
 
 const Wrapper = tw.div`h-screen flex-center`;
 
 const MainSection = tw.section`
-  w-full h-4/5 min-w-[280px] min-h-[500px] rounded-10 pr-40
+  w-full h-full pr-40 px-40
   bg-white drop-shadow-lg
   flex items-center flex-row justify-between 
-  px-40
-  foldable:(w-2/3)
+  foldable:(w-2/3 h-4/5 min-w-[280px] min-h-[500px] rounded-10)
 `;
 
 const MainPage = () => {
