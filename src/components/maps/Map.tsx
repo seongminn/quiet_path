@@ -17,6 +17,7 @@ const Map = ({ children, location, setMap }: GoogleMapProps) => {
       options={{
         mapTypeControl: false,
         styles: mapOptions,
+        gestureHandling: 'greedy',
       }}
     >
       {children}
