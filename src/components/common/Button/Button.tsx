@@ -21,13 +21,13 @@ const getButtonType: Record<ButtonType, TwStyle> = {
 };
 
 const getButtonSize: Record<ButtonSize, TwStyle> = {
-  large: tw`px-24 py-16`,
-  medium: tw` px-16 py-14`,
-  small: tw`px-8 py-8`,
+  large: tw`px-24pxr py-16pxr`,
+  medium: tw` px-16pxr py-14pxr`,
+  small: tw`px-8pxr py-8pxr`,
 };
 
 const BASE_STYLE = [
-  tw`rounded-2 max-w-full w-65`,
+  tw`rounded-2 max-w-full w-65pxr`,
   tw`cursor-pointer block truncate`,
   tw`bg-white text-black font-bold `,
 ];

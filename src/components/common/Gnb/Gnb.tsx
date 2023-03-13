@@ -4,8 +4,7 @@ import Menu from './Menu';
 
 const Navigation = styled.nav([
   tw`
-  relative min-w-70
-  mobile:(hidden)
+  relative min-w-70 hidden
   laptop:(flex-stack bg-white)`,
 ]);
 

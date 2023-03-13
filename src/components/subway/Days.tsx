@@ -12,12 +12,12 @@ const Days = () => {
   };
 
   return (
-    <div tw='inline-flex' role='group'>
+    <div tw='tablet:(flex-row) flex-stack mb-20' role='group'>
       <Button
         onClick={handleDays}
         type={days === '평일' ? 'primary' : 'default'}
         size='small'
-        props={[tw`text-14 mb-20`]}
+        props={[tw`text-sm`]}
       >
         평일
       </Button>
@@ -25,7 +25,7 @@ const Days = () => {
         onClick={handleDays}
         type={days === '토요일' ? 'primary' : 'default'}
         size='small'
-        props={[tw`text-14 mb-20`]}
+        props={[tw`text-sm`]}
       >
         토요일
       </Button>

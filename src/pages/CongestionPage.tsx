@@ -13,7 +13,7 @@ const CongestionPage = () => {
   return (
     <div
       css={[
-        tw`mobile:(flex-stack w-full h-5/6)`,
+        tw`flex-stack w-full h-5/6`,
         tw`laptop:(flex flex-row justify-around items-center gap-20 w-full h-5/6)`,
       ]}
     >

@@ -12,12 +12,12 @@ export const customStyles = css({
     },
   ],
 
-  h1: tw`font-Bold text-56 text-black leading-64`,
-  h2: tw`font-Bold text-48 text-black leading-56`,
-  h3: tw`font-Bold text-40 text-black leading-48`,
-  h4: tw`font-Bold text-32 text-black leading-40`,
-  h5: tw`font-Bold text-24 text-black leading-32`,
-  h6: tw`font-Bold text-18 text-black leading-26`,
+  h1: tw`font-Bold text-6xl text-black leading-64`,
+  h2: tw`font-Bold text-5xl text-black leading-56`,
+  h3: tw`font-Bold text-4xl text-black leading-48`,
+  h4: tw`font-Bold text-3xl text-black leading-40`,
+  h5: tw`font-Bold text-2xl text-black leading-32`,
+  h6: tw`font-Bold text-xl text-black leading-26`,
 });
 
 const GlobalStyles = () => (
