@@ -1,12 +1,8 @@
-import { MapContainer } from '@/components/maps';
-import { useEffect, useState } from 'react';
-import { SubwayList } from '@/components/subway';
+import { useEffect } from 'react';
 import { Gnb } from '@/components/common/Gnb';
 import tw from 'twin.macro';
-import { getSubwayLocations } from '@/query';
-import { SubwayLocationObj } from '@/types/subway';
-import { useRecoilValue } from 'recoil';
-import { lineState } from '@/recoil/atoms/lineState';
+import CongestionPage from './CongestionPage';
+import { Outlet } from 'react-router-dom';
 
 const Wrapper = tw.div`h-screen flex-center`;
 
@@ -19,9 +15,6 @@ const MainSection = tw.section`
 `;
 
 const MainPage = () => {
-  const line = useRecoilValue(lineState);
-  const subwayList: SubwayLocationObj[] = getSubwayLocations({ line });
-
   useEffect(() => {
     document.title = '누리길 | 조용한 귀가를 누리길';
   }, []);
@@ -30,15 +23,7 @@ const MainPage = () => {
     <Wrapper>
       <MainSection>
         <Gnb />
-        <div
-          css={[
-            tw`mobile:(flex-stack w-full h-5/6)`,
-            tw`laptop:(flex flex-row justify-around items-center gap-20 w-full h-5/6)`,
-          ]}
-        >
-          <SubwayList line={line} subwayList={subwayList} />
-          <MapContainer line={line} subwayList={subwayList} />
-        </div>
+        <Outlet />
       </MainSection>
     </Wrapper>
   );

@@ -1,10 +1,9 @@
 import tw from 'twin.macro';
 import { useEffect, useState } from 'react';
 import { LoadScript } from '@react-google-maps/api';
-import { useGeolocation, useMapPanning } from '@/hooks';
+import { useGeolocation, useMapPanning, useCustomButton } from '@/hooks';
 import { SubwayLocationObj } from '@/types/subway';
 import { Marker, Map } from '@/components/maps';
-import useCustomButton from '@/hooks/useCustomButton';
 
 const Wrapper = tw.div`
   min-w-[400px] h-full rounded-10 overflow-y-hidden

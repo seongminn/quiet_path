@@ -1,8 +1,7 @@
 import { SubwayLocationObj } from '@/types/subway';
 import { InfoContainer } from '@/components/maps/infos';
 import tw, { styled } from 'twin.macro';
-import SubwayName from './SubwayName';
-import Days from './Days';
+import { SubwayName, Days } from '.';
 
 const Container = styled.section([
   tw`mobile:(w-full h-auto)`,
