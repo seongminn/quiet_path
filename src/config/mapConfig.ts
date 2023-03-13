@@ -8,6 +8,7 @@ export const mapOptions = [
   {
     featureType: 'poi',
     elementType: 'labels',
+    gestureHandling: 'greedy',
     stylers: [{ visibility: 'off' }],
   },
 ];
