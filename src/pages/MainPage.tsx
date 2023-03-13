@@ -5,6 +5,8 @@ import { Gnb } from '@/components/common/Gnb';
 import tw from 'twin.macro';
 import { getSubwayLocations } from '@/query';
 import { SubwayLocationObj } from '@/types/subway';
+import { useRecoilValue } from 'recoil';
+import { lineState } from '@/recoil/atoms/lineState';
 
 const Wrapper = tw.div`h-screen flex-center`;
 
@@ -17,7 +19,7 @@ const MainSection = tw.section`
 `;
 
 const MainPage = () => {
-  const [line, setLine] = useState<number>(1);
+  const line = useRecoilValue(lineState);
   const subwayList: SubwayLocationObj[] = getSubwayLocations({ line });
 
   useEffect(() => {
@@ -32,10 +34,9 @@ const MainPage = () => {
           css={[
             tw`mobile:(flex-stack w-full h-5/6)`,
             tw`laptop:(flex flex-row justify-around items-center gap-20 w-full h-5/6)`,
-            // tw`laptop:(grid [grid-template-columns: 1fr 1fr] overflow-y-scroll gap-20 w-full h-5/6)`,
           ]}
         >
-          <SubwayList line={line} setLine={setLine} subwayList={subwayList} />
+          <SubwayList line={line} subwayList={subwayList} />
           <MapContainer line={line} subwayList={subwayList} />
         </div>
       </MainSection>

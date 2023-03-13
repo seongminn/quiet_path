@@ -2,6 +2,7 @@ import { SubwayLocationObj } from '@/types/subway';
 import { InfoContainer } from '@/components/maps/infos';
 import tw, { styled } from 'twin.macro';
 import SubwayName from './SubwayName';
+import Days from './Days';
 
 const Container = styled.section([
   tw`mobile:(w-full h-auto)`,
@@ -14,16 +15,17 @@ const List = tw.div`
 
 const SubwayList = ({
   line,
-  setLine,
   subwayList,
 }: {
   line: number;
-  setLine: React.Dispatch<React.SetStateAction<number>>;
   subwayList: SubwayLocationObj[] | null;
 }) => {
   return (
     <Container>
-      <SubwayName line={line} setLine={setLine} />
+      <div css={tw`flex justify-between items-center w-full`}>
+        <SubwayName />
+        <Days />
+      </div>
       <div
         css={[
           tw`flex flex-col justify-start overflow-y-scroll`,
@@ -38,7 +40,7 @@ const SubwayList = ({
           `}
           >
             <List key={item.name}>
-              <InfoContainer line={line} name={item.name} />
+              <InfoContainer name={item.name} />
             </List>
           </div>
         ))}

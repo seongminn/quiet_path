@@ -6,7 +6,6 @@ export type Location = {
 export type MarkerProps = {
   name: string;
   location: Location;
-  line: number;
   panTo: (location: Location) => void;
 };
 

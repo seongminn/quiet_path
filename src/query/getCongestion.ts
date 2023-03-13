@@ -8,7 +8,7 @@ import {
 import { fetcher } from '@/api/fetcher';
 import { URLs } from '@/api/url';
 
-const getCongestion = ({ line, investigatedDate = '평일' }: RequestProps) => {
+const getCongestion = ({ line, investigatedDate }: RequestProps) => {
   const { data: congestionData } = useQuery<ResponseProps<SubwayCongestionApi>>(
     QueryKey.CONGESTION,
     () => fetcher({ path: URLs.CONGESTION })
