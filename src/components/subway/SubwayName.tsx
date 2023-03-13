@@ -2,6 +2,8 @@ import tw, { css, styled } from 'twin.macro';
 import colorConverter from '@/lib/colorConverter';
 import { ReactComponent as DownIcon } from '@/assets/icons/icon-chevron-down.svg';
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { lineState } from '@/recoil/atoms/lineState';
 
 const TopContainer = styled.div([
   tw`relative flex items-center cursor-pointer`,
@@ -28,13 +30,8 @@ const DropList = styled.li([tw`px-20 py-10 hover:(bg-gray-200)`]);
 
 const subways = [1, 2, 3, 4, 5, 6, 7, 8];
 
-const SubwayName = ({
-  line,
-  setLine,
-}: {
-  line: number;
-  setLine: React.Dispatch<React.SetStateAction<number>>;
-}) => {
+const SubwayName = () => {
+  const [line, setLine] = useRecoilState(lineState);
   const [isDropped, toggleDropdown] = useState<boolean>(false);
   const handleToggle = () => toggleDropdown(!isDropped);
   const onClickLine = (subwayLine: number) => {

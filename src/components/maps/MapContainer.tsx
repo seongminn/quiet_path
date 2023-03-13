@@ -49,7 +49,6 @@ const MapContainer = ({
               key={name + line}
               location={location}
               name={name}
-              line={line}
               panTo={panTo}
             />
           ))}

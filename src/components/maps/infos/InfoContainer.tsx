@@ -4,8 +4,10 @@ import { useRecoilValue } from 'recoil';
 import { getCongestion } from '@/query';
 import { Info, Skeleton } from '.';
 import { dayState } from '@/recoil/atoms/dayState';
+import { lineState } from '@/recoil/atoms/lineState';
 
-const InfoContainer = ({ line, name }: { line: number; name: string }) => {
+const InfoContainer = ({ name }: { name: string }) => {
+  const line = useRecoilValue(lineState);
   const days = useRecoilValue(dayState);
   const congestion = getCongestion({
     line,

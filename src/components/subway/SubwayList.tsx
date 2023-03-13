@@ -17,11 +17,9 @@ const List = tw.div`
 
 const SubwayList = ({
   line,
-  setLine,
   subwayList,
 }: {
   line: number;
-  setLine: React.Dispatch<React.SetStateAction<number>>;
   subwayList: SubwayLocationObj[] | null;
 }) => {
   const [days, setDays] = useRecoilState(dayState);
@@ -34,7 +32,7 @@ const SubwayList = ({
   return (
     <Container>
       <div css={tw`flex justify-between items-center w-full`}>
-        <SubwayName line={line} setLine={setLine} />
+        <SubwayName />
         <div tw='inline-flex' role='group'>
           <Button
             onClick={handleDays}
@@ -68,7 +66,7 @@ const SubwayList = ({
           `}
           >
             <List key={item.name}>
-              <InfoContainer line={line} name={item.name} />
+              <InfoContainer name={item.name} />
             </List>
           </div>
         ))}
