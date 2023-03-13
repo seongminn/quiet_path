@@ -6,10 +6,11 @@ import { Outlet } from 'react-router-dom';
 const Wrapper = tw.div`h-screen flex-center`;
 
 const MainSection = tw.section`
-  w-2/3 h-4/5 min-w-[280px] min-h-[500px] rounded-10 pr-40
+  w-full h-4/5 min-w-[280px] min-h-[500px] rounded-10 pr-40
   bg-white drop-shadow-lg
   flex items-center flex-row justify-between 
   px-40
+  foldable:(w-2/3)
 `;
 
 const MainPage = () => {
