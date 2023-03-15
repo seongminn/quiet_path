@@ -17,7 +17,7 @@ const Gnb = () => {
   return (
     <Layout open={open} setOpen={setOpen}>
       <div css={tw`flex justify-start items-center`}>
-        <img src={LogoSrc} css={tw`m-16`} alt='logo' />
+        <img src={LogoSrc} css={tw`m-16 w-36 h-36`} alt='logo' />
       </div>
       <List open={open}>
         <ul>
