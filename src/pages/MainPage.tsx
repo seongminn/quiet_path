@@ -6,10 +6,11 @@ import tw from 'twin.macro';
 const Wrapper = tw.div`h-screen flex-center`;
 
 const MainSection = tw.section`
+  relative
   w-full h-full px-20
-  bg-white drop-shadow-lg
+  bg-gray-300 drop-shadow-lg
   flex items-center flex-row justify-between 
-  foldable:(w-2/3 h-4/5 min-w-[280px] min-h-[500px] rounded-10)
+  tablet:(bg-white w-2/3 h-4/5 min-w-[280px] min-h-[500px] rounded-10)
 `;
 
 const MainPage = () => {
