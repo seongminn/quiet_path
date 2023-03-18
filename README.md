@@ -31,7 +31,7 @@
 ## ✨ 주요 기능
 
 <div align="middle">
-<img src="https://user-images.githubusercontent.com/88662637/225949444-b56672d7-b844-4900-9659-0817ea710514.png" />
+<img src="https://user-images.githubusercontent.com/88662637/226086548-a946dfc5-2104-45e0-b197-834dc9955e49.png" />
 
 </div>
 <br />
