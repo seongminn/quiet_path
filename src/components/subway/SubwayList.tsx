@@ -28,7 +28,7 @@ const SubwayList = ({
       <div
         css={[
           tw`flex flex-col justify-start`,
-          tw`overflow-y-scroll hidden`,
+          tw`hidden overflow-y-scroll scrollbar scrollbar-thumb-gray-600 scrollbar-w-4 scrollbar-thumb-rounded-2 scrollbar-track-transparent`,
           tw`laptop:(flex flex-col justify-start gap-20 h-full w-full pt-10 rounded-5 mt-20)`,
         ]}
       >
