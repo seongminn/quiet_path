@@ -3,13 +3,13 @@ import tw, { styled } from 'twin.macro';
 
 const Navigation = styled.header<{ open: boolean }>(({ open }) => [
   tw`
-  relative h-68
+  h-68
   tablet:(relative flex-stack bg-white w-70)`,
 
   open ? tw`z-50` : tw`z-0 delay-150`,
 ]);
 
-const LaptopContainer = styled.nav<{ open: boolean }>(({ open }) => [
+const Container = styled.nav<{ open: boolean }>(({ open }) => [
   tw`fixed left-2 top-2 duration-150`,
   tw`flex flex-col h-[99.5%] rounded-8 z-50 cursor-pointer`,
   tw`tablet:(bg-gray-200)`,
@@ -31,7 +31,7 @@ const GnbLayout = ({
 }) => {
   return (
     <Navigation open={open} onClick={() => setOpen((prev) => !prev)}>
-      <LaptopContainer open={open}>{children}</LaptopContainer>
+      <Container open={open}>{children}</Container>
     </Navigation>
   );
 };
