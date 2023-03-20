@@ -7,7 +7,7 @@ const Wrapper = tw.div`h-screen flex-center fixed overflow-hidden tablet:(static
 
 const MainSection = tw.section`
   relative
-  overflow-y-scroll [-webkit-overflow-scrolling: touch]
+  [-webkit-overflow-scrolling: touch]
   w-screen h-screen px-20
   bg-gray-300 drop-shadow-lg
   flex items-center flex-col justify-center
