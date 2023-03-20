@@ -8,7 +8,7 @@ import { lineState } from '@/recoil/atoms/lineState';
 const TopContainer = styled.div([
   tw`relative flex items-center cursor-pointer`,
   tw`hover:([svg]:animate-bounce)`,
-  tw`p-0 mb-20`,
+  tw`p-0 tablet:mb-20`,
   tw`laptop:p-0`,
 ]);
 
