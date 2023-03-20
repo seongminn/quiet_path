@@ -3,13 +3,14 @@ import { Gnb } from '@/components/common/Gnb';
 import { Outlet } from 'react-router-dom';
 import tw from 'twin.macro';
 
-const Wrapper = tw.div`h-screen flex-center`;
+const Wrapper = tw.div`h-screen flex-center fixed overflow-hidden`;
 
 const MainSection = tw.section`
   relative
-  w-full h-full px-20
+  overflow-y-scroll [-webkit-overflow-scrolling: touch]
+  w-screen h-screen px-20
   bg-gray-300 drop-shadow-lg
-  flex items-center flex-col justify-center [-webkit-overflow-scrolling: touch]
+  flex items-center flex-col justify-center
   tablet:(flex-row justify-between bg-white w-2/3 h-4/5 min-w-[280px] min-h-[500px] rounded-10)
 `;
 
