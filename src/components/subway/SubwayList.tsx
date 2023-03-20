@@ -35,7 +35,7 @@ const SubwayList = ({
         ]}
       >
         {subwayList?.map((item) => (
-          <List key={item.name}>
+          <List key={line + item.name}>
             <InfoContainer name={item.name} />
           </List>
         ))}
