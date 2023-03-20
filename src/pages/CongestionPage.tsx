@@ -13,9 +13,9 @@ const CongestionPage = () => {
   return (
     <div
       css={[
-        tw`flex-stack w-full h-5/6 mt-70`,
-        tw`tablet:mt-0`,
-        tw`laptop:(flex flex-row justify-around items-center gap-20 w-full h-5/6)`,
+        tw`flex flex-col justify-between items-center w-full h-5/6 mb-20`,
+        tw`tablet:my-20 h-[95%] gap-10`,
+        tw`laptop:(flex flex-row justify-around items-center gap-20 h-5/6 my-0)`,
       ]}
     >
       <SubwayList line={line} subwayList={subwayList} />

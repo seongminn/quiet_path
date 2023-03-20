@@ -12,7 +12,7 @@ const Days = () => {
   };
 
   return (
-    <div tw='tablet:(flex-row) flex-stack mb-20' role='group'>
+    <div tw='tablet:(flex-row) flex-stack tablet:mb-20' role='group'>
       <Button
         onClick={handleDays}
         type={days === '평일' ? 'primary' : 'default'}
