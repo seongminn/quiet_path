@@ -3,7 +3,7 @@ import { Gnb } from '@/components/common/Gnb';
 import { Outlet } from 'react-router-dom';
 import tw from 'twin.macro';
 
-const Wrapper = tw.div`h-screen flex-center fixed overflow-hidden`;
+const Wrapper = tw.div`h-screen flex-center fixed overflow-hidden tablet:(static)`;
 
 const MainSection = tw.section`
   relative
