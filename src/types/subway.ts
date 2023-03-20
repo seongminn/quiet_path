@@ -69,7 +69,7 @@ export type ResponseProps<DataProp> = {
   data: DataProp[];
 };
 
-export type InvestigatedDate = '평일' | '토요일' | '일요일' | string;
+export type InvestigatedDate = '평일' | '토요일' | string;
 
 export type RequestProps = {
   line: number;
