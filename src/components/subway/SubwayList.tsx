@@ -9,7 +9,9 @@ const Container = styled.section([
 ]);
 
 const List = tw.div`
-  py-10 pr-20 w-full
+py-10 pr-20 w-full 
+relative not-last:after:(content-[''] w-50 h-1 bg-gray-400 absolute bottom-[-10px] left-0)
+first-of-type:pt-0 last-of-type:pb-0
 `;
 
 const SubwayList = ({
@@ -29,19 +31,13 @@ const SubwayList = ({
         css={[
           tw`flex flex-col justify-start`,
           tw`hidden overflow-y-scroll scrollbar scrollbar-thumb-gray-600 scrollbar-w-4 scrollbar-thumb-rounded-2 scrollbar-track-transparent`,
-          tw`laptop:(flex flex-col justify-start gap-20 h-full w-full pt-10 rounded-5 mt-20)`,
+          tw`laptop:(flex flex-col justify-start gap-20 h-full w-full rounded-5 mt-20)`,
         ]}
       >
         {subwayList?.map((item) => (
-          <div
-            key={`${line} + ${item.name}`}
-            css={tw`relative not-last:after:(content-[''] w-50 h-1 bg-gray-400 absolute bottom-[-10px] left-0)
-          `}
-          >
-            <List key={item.name}>
-              <InfoContainer name={item.name} />
-            </List>
-          </div>
+          <List key={line + item.name}>
+            <InfoContainer name={item.name} />
+          </List>
         ))}
       </div>
     </Container>
