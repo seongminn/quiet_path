@@ -108,5 +108,9 @@ module.exports = {
       }, {}),
     },
   },
-  plugins: [flexCenterPlugin, stackPlugin],
+  plugins: [
+    flexCenterPlugin,
+    stackPlugin,
+    require('tailwind-scrollbar')({ nocompatible: true }),
+  ],
 };
