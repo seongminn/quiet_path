@@ -5,6 +5,6 @@ import { atom } from 'recoil';
 const dayOfWeek = useDayOfWeek(new Date());
 
 export const dayState = atom<InvestigatedDate>({
-  key: 'DAY_STATE',
+  key: 'DayState',
   default: dayOfWeek,
 });
