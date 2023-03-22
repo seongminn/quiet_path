@@ -4,6 +4,10 @@ import { LoadScript } from '@react-google-maps/api';
 import { useGeolocation, useMapPanning, useCustomButton } from '@/hooks';
 import { SubwayLocationObj } from '@/types/subway';
 import { Marker, Map } from '@/components/maps';
+import { useSetRecoilState } from 'recoil';
+import { subwayListState } from '@/recoil/atoms/subwayListState';
+import Button from '../common/Button/Button';
+import useMediaQuery from '@/hooks/useMediaQuery';
 
 const Wrapper = tw.div`
   w-full h-full rounded-10 overflow-y-hidden
@@ -21,6 +25,8 @@ const MapContainer = ({
   subwayList: SubwayLocationObj[] | null;
 }) => {
   const { VITE_GOOGLE_API_KEY } = import.meta.env;
+  const matches = useMediaQuery('(max-width: 1350px)');
+  const setClicked = useSetRecoilState(subwayListState);
   const [initialLocation] = useGeolocation();
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const panTo = useMapPanning(map);
@@ -29,15 +35,23 @@ const MapContainer = ({
     if (map) {
       map.controls[google.maps.ControlPosition.TOP_LEFT].clear();
 
-      const customButton = document.createElement('button');
-
       useCustomButton({
         map: map,
-        location: initialLocation,
-        element: customButton,
+        onClick: () => map.panTo(initialLocation),
+        element: document.createElement('button'),
+        message: '현재 위치',
       });
+
+      if (matches) {
+        useCustomButton({
+          map: map,
+          onClick: () => setClicked((prev) => !prev),
+          element: document.createElement('button'),
+          message: '혼잡도 보기',
+        });
+      }
     }
-  }, [map, initialLocation]);
+  }, [map, initialLocation, matches]);
 
   return (
     <Wrapper>

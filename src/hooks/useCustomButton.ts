@@ -1,13 +1,13 @@
-import { Location } from '@/types/map';
-
 const useCustomButton = ({
   map,
-  location,
+  onClick,
   element,
+  message,
 }: {
   map: google.maps.Map;
-  location: Location;
+  onClick: () => void;
   element: HTMLButtonElement;
+  message: string;
 }) => {
   element.style.backgroundColor = '#00b890';
   element.style.boxShadow =
@@ -21,10 +21,10 @@ const useCustomButton = ({
   element.style.fontFamily = 'NSRoundBold';
   element.style.transition = 'all 0.15s ease-in-out';
 
-  element.textContent = '현재 위치';
+  element.textContent = message;
   element.type = 'button';
   element.addEventListener('click', () => {
-    map.panTo(location);
+    onClick();
   });
   element.addEventListener('mouseover', () => {
     element.style.backgroundColor = '#00857A';
