@@ -34,7 +34,7 @@ const SubwayList = ({
         css={[
           tw`flex flex-col justify-start`,
           tw`scrollbar scrollbar-thumb-gray-600 scrollbar-w-4 scrollbar-thumb-rounded-2 scrollbar-track-transparent`,
-          tw`absolute transition-all w-full bottom-0 left-0 rounded-t-10 z-50`,
+          tw`absolute transition-all w-full bottom-0 left-0 rounded-t-10 z-30`,
 
           clicked ? tw`bg-white h-[600px]` : tw`h-50 opacity-[0.01]`,
 
