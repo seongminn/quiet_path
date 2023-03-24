@@ -5,6 +5,38 @@ import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { lineState } from '@/recoil/atoms/lineState';
 
+const subways = [1, 2, 3, 4, 5, 6, 7, 8];
+
+const SubwayName = () => {
+  const [line, setLine] = useRecoilState(lineState);
+  const [isDropped, toggleDropdown] = useState<boolean>(false);
+  const handleToggle = () => toggleDropdown(!isDropped);
+  const onClickLine = (subwayLine: number) => {
+    setLine(subwayLine);
+    handleToggle();
+  };
+
+  return (
+    <Wrapper>
+      <TopContainer onClick={handleToggle}>
+        <Title name={`${line}`}>{line}호선</Title>
+        <DownIcon width={18} height={18} css={tw`ml-20`} />
+      </TopContainer>
+      <DropdownContainer isDropped={isDropped}>
+        <ul>
+          {subways.map((subway) => (
+            <DropList key={`${subway}호선`} onClick={() => onClickLine(subway)}>
+              {subway}호선
+            </DropList>
+          ))}
+        </ul>
+      </DropdownContainer>
+    </Wrapper>
+  );
+};
+
+const Wrapper = styled.div(tw`flex-1`);
+
 const TopContainer = styled.div([
   tw`relative flex items-center cursor-pointer`,
   tw`hover:([svg]:animate-bounce)`,
@@ -26,35 +58,5 @@ const DropdownContainer = styled.div<{ isDropped: boolean }>(
 );
 
 const DropList = styled.li([tw`px-20 py-10 hover:(bg-gray-200)`]);
-
-const subways = [1, 2, 3, 4, 5, 6, 7, 8];
-
-const SubwayName = () => {
-  const [line, setLine] = useRecoilState(lineState);
-  const [isDropped, toggleDropdown] = useState<boolean>(false);
-  const handleToggle = () => toggleDropdown(!isDropped);
-  const onClickLine = (subwayLine: number) => {
-    setLine(subwayLine);
-    handleToggle();
-  };
-
-  return (
-    <div css={tw`flex-1`}>
-      <TopContainer onClick={handleToggle}>
-        <Title name={`${line}`}>{line}호선</Title>
-        <DownIcon width={18} height={18} css={tw`ml-20`} />
-      </TopContainer>
-      <DropdownContainer isDropped={isDropped}>
-        <ul>
-          {subways.map((subway) => (
-            <DropList key={`${subway}호선`} onClick={() => onClickLine(subway)}>
-              {subway}호선
-            </DropList>
-          ))}
-        </ul>
-      </DropdownContainer>
-    </div>
-  );
-};
 
 export default SubwayName;

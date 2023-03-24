@@ -1,6 +1,22 @@
 import { ReactNode } from 'react';
 import tw, { styled } from 'twin.macro';
 
+const GnbLayout = ({
+  open,
+  setOpen,
+  children,
+}: {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  children: ReactNode;
+}) => {
+  return (
+    <Navigation open={open} onClick={() => setOpen((prev) => !prev)}>
+      <Container open={open}>{children}</Container>
+    </Navigation>
+  );
+};
+
 const Navigation = styled.header<{ open: boolean }>(({ open }) => [
   tw`
   h-68
@@ -19,21 +35,5 @@ const Container = styled.nav<{ open: boolean }>(({ open }) => [
   tw`[svg]:(box-content duration-100 rounded-7 p-10 m-0 hover:(bg-gray-400))`,
   tw`[li > div > svg]:(p-5 hover:(bg-transparent))`,
 ]);
-
-const GnbLayout = ({
-  open,
-  setOpen,
-  children,
-}: {
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  children: ReactNode;
-}) => {
-  return (
-    <Navigation open={open} onClick={() => setOpen((prev) => !prev)}>
-      <Container open={open}>{children}</Container>
-    </Navigation>
-  );
-};
 
 export default GnbLayout;

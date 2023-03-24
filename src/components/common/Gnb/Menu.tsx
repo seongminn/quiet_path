@@ -1,6 +1,6 @@
-import SvgIcon from '@/components/common/Icon/SvgIcon';
+import svgIcon from '@/lib/svgIcon';
 import { Link } from 'react-router-dom';
-import tw from 'twin.macro';
+import tw, { styled } from 'twin.macro';
 
 const Menu = ({
   icon,
@@ -20,14 +20,14 @@ const Menu = ({
   link?: string;
 }) => {
   const Icon = () => (
-    <div css={tw`flex justify-center items-center`}>
-      <div css={[styles]}>{SvgIcon[icon](width, height, strokeWidth)}</div>
-      <p css={tw`p-10`}>{title}</p>
-    </div>
+    <IconWrapper>
+      <div css={styles}>{svgIcon[icon](width, height, strokeWidth)}</div>
+      <p>{title}</p>
+    </IconWrapper>
   );
 
   return (
-    <div css={[tw`flex justify-between items-center w-full`]}>
+    <Wrapper>
       {link ? (
         <Link to={link}>
           <Icon />
@@ -35,8 +35,15 @@ const Menu = ({
       ) : (
         <Icon />
       )}
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div([tw`flex justify-between items-center w-full`]);
+
+const IconWrapper = styled.div([
+  tw`flex justify-center items-center`,
+  tw`[p]:p-10`,
+]);
 
 export default Menu;

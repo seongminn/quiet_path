@@ -1,6 +1,6 @@
 import { dayState } from '@/recoil/atoms/dayState';
 import { useRecoilState } from 'recoil';
-import tw from 'twin.macro';
+import tw, { styled } from 'twin.macro';
 import Button from '@/components/common/Button/Button';
 
 const Days = () => {
@@ -12,7 +12,7 @@ const Days = () => {
   };
 
   return (
-    <div tw='tablet:(flex-row) flex-stack tablet:mb-20' role='group'>
+    <Wrapper>
       <Button
         onClick={handleDays}
         type={days === '평일' ? 'primary' : 'default'}
@@ -29,8 +29,10 @@ const Days = () => {
       >
         토요일
       </Button>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div([tw`tablet:(flex-row) flex-stack tablet:mb-20`]);
 
 export default Days;

@@ -6,16 +6,7 @@ import { SubwayLocationObj } from '@/types/subway';
 import { Marker, Map } from '@/components/maps';
 import { useSetRecoilState } from 'recoil';
 import { subwayListState } from '@/recoil/atoms/subwayListState';
-import Button from '../common/Button/Button';
 import useMediaQuery from '@/hooks/useMediaQuery';
-
-const Wrapper = tw.div`
-  w-full h-full rounded-10 overflow-y-hidden
-  shadow-gray-300 drop-shadow-lg
-  flex-center flex-1
-  
-  laptop:max-w-[55%]
-  `;
 
 const MapContainer = ({
   line,
@@ -70,5 +61,13 @@ const MapContainer = ({
     </Wrapper>
   );
 };
+
+const Wrapper = tw.div`
+  w-full h-full rounded-10 overflow-y-hidden
+  shadow-gray-300 drop-shadow-lg
+  flex-center flex-1
+  
+  laptop:max-w-[55%]
+  `;
 
 export default MapContainer;

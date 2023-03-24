@@ -5,7 +5,7 @@ import { ReactComponent as MetroIcon } from '@/assets/icons/icon-metro.svg';
 import { ReactComponent as DownIcon } from '@/assets/icons/icon-chevron-down.svg';
 import { ReactNode } from 'react';
 
-const SvgIcon: {
+const svgIcon: {
   [key: string]: (
     width: number,
     height: number,
@@ -29,4 +29,4 @@ const SvgIcon: {
   ),
 };
 
-export default SvgIcon;
+export default svgIcon;
